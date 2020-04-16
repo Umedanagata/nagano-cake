@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'items/top'
+  get 'items/index'
+  get 'items/show'
   devise_for :admins
   get 'addresses/index'
   get 'addresses/create'

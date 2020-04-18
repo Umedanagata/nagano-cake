@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :admins
+
+  namespace :admins do
+    get '/top'=>'top#top'
+    devise_for :customers
+    resources :items
+  end
+
   get 'addresses/index'
   get 'addresses/create'
   get 'addresses/edit'

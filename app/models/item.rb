@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
-	has_many :genres
+	belongs_to :genres
 	has_many :order_items
+	has_many :cart_items , dependent: :destroy
 end

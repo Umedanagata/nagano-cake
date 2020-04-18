@@ -13,6 +13,7 @@ class Admins::ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(item_params)
+		@genre = genre.find(params[:genre_id])
 		@item.save
 		redirect_to admins_item_path(@item)
 	end
@@ -30,6 +31,6 @@ class Admins::ItemsController < ApplicationController
 	private
 
 	def item_params
-		params.permit(:image , :name , :text , :price)
+		params.require(:item).permit(:image , :name , :text , :price)
 	end
 end

@@ -1,3 +1,3 @@
 class Genre < ApplicationRecord
-	beongs_to :item
+	has_many :item
 end

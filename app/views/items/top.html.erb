@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <p>ようこそ、NaganoCakeへ!<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、
+      購入には会員登録が必要になります。</p>
+      <% if customer_signed_in? %>
+        <h3><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></h3>
+      <% else %>
+        <h3><%= link_to "ログイン", new_customer_session_path %></h3>
+      <% end %>
+
+      <%= link_to "商品一覧へ", items_path %>
+    </div>
+
+  </div>
+
+</div>

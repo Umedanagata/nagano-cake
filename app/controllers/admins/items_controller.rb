@@ -22,11 +22,14 @@ class Admins::ItemsController < ApplicationController
 	end
 
 	def update
+		@item = Item.find(params[:id])
+		@item.update(item_params)
+		redirect_to admins_item_path(@item)
 	end
 
 	private
 
 	def item_params
-		params.permit(:name , :text , :price)
+		params.permit(:image , :name , :text , :price)
 	end
 end

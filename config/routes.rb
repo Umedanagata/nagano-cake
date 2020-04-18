@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   #顧客側
+  devise_for :customers
   root 'items#top'
   get 'orders/confirm' => 'orders#confirm'
   get 'orders/complete' => 'orders#complete'
@@ -12,8 +13,8 @@ Rails.application.routes.draw do
   resources :customers, only:[:show, :edit, :create, :update]
   get 'customers/confirm' => 'customers#confirm'
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
-  devise_for :customers
-  
+
+
 
 
   #管理側

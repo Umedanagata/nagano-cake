@@ -14,6 +14,7 @@
       <h2><%= @items.name %></h2>
       <p>@items.text</p><br>
       <%= ¥ @items.price  (税込) %>
+      <%= link_to "カートに入れる", cart_items_path, method: :post %>
     </div>
 
   </div>

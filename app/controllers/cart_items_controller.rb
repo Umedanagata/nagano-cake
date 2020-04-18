@@ -3,7 +3,10 @@ class CartItemsController < ApplicationController
     @cart_items = CartItem.all
   end
   def create
-
+    @cart_item = Item.find(params[:id])
+    @cart_item = current.customers.cart_items.new
+    @cart_item.customers_id = current.customers_id
+    @cart_item.save
   end
   def destroy_item
 

@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   resources :cart_items, only:[:index, :create, :destroy, :update]
   delete '/cart_items/:id' => 'cart_items#destroy_item'
   resources :orders, only:[:index, :show, :new, :create]
+  devise_for :customers
   resources :customers, only:[:show, :edit, :create, :update]
   get 'customers/confirm' => 'customers#confirm'
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
-  devise_for :customers
-  
+
 
 
   #管理側

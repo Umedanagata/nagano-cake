@@ -1,2 +1,68 @@
 <h1>items edit</h1>
-<%= render 'admins/items/form' %>
+<%= form_for @item ,url: admins_item_path , method: :get  do |f| %>
+  <div class="container">
+	<div class="col-xs-3 ">
+		<div class="item_new_image">
+          <%= attachment_image_tag @item , :image ,:fill ,200 ,200 ,fallback: 'noimage.jpg' %>
+		</div>
+		<div class="item_new_image_btn">
+			<%= f.attachment_field :image %>
+		</div>
+	</div>
+
+	<div class="col-xs-6 ">
+
+	<div class="item_new_name">
+		<div class="item_new_name">
+			<p>商品名</p>
+		</div>
+		<div>
+			<%= f.text_field :name %>
+		</div>
+	</div>
+
+	<div class="item_new_text">
+		<div class="item_new_text">
+			<p>商品説明</p>
+		</div>
+		<div>
+			<%= f.text_area :text %>
+		</div>
+	</div>
+
+	<div>
+		<div>
+			<p>ジャンル</p>
+		</div>
+
+		<div>
+
+		</div>
+	</div>
+
+	<div>
+		<div>
+			<p>税抜価格</p>
+		</div>
+
+		<div>
+			<%= f.text_field :price %>
+		</div>
+	</div>
+
+	<div>
+		<div>
+			<p>販売ステータス</p>
+		</div>
+
+		<div>
+
+		</div>
+	</div>
+
+	<div class="col-xs-3 ">
+		<%= f.submit "変更を保存"%>
+	</div>
+  </div>
+  </div>
+	<% end %>

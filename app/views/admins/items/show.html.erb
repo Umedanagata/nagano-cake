@@ -1,5 +1,6 @@
 <h1>items show</h1>
 
+<%= attachment_image_tag @item , :image ,:fill ,60 ,60 ,fallback: 'noimage.jpg' %>
 <%= @item.name %>
 <%= @item.text %>
 <%= @item.price %>

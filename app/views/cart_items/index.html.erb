@@ -23,11 +23,7 @@
           <% end %>
           <tr>
             <th><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></th>
-            <th>合計金額</th>
-            <% @cart_items.each do |cart_item| %>
-            <% amount = cart_item.price * cart_item.quantity %>
-
-            <th><%= quantity(@cart_items) %></th>
+            
           </tr>
       </table>
 

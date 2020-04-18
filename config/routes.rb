@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'customers/confirm' => 'customers#confirm'
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
   devise_for :customers
+  
 
 
   #管理側

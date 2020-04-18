@@ -1,27 +1,29 @@
 class Admins::GenresController < ApplicationController
-	def index
 
-	end
+#ジャンル一覧と新規作成
+  def index
+  	@genre = Genre.new
+    @genres = Genre.all
+  end
 
-	def show
+  def create
+    genre = Genre.new(genre_prams)
+    genre.save
+    redirect_to admins_genre_path
+ # nameバリデーション
+  end
 
-	end
+  def edit
+  	@genre = Genre.find(params[:id])
+  end
 
-	def create
+  def update
 
-	end
+  end
 
-	def edit
-
-	end
-
-	def update
-
-	end
-
-
-	private
+#ストロングパラメータ
+  private
 	def genre_params
-		params.permit(:name , :genres_status)
+		params.require(:genre).permit(:name)
 	end
 end

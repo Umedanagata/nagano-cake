@@ -8,9 +8,9 @@
       <h1>商品一覧</h1>(全<%= @items.count %>件)
       <% @items.each do |item| %>
         <div class="items-image">
-          <%= attachment_image_tag item, :items, fill, 100, 100, format: 'jpeg', fallback: "noimage.jpg" %>
+          <%= attachment_image_tag item, :image, :fill, 300, 200, format: 'jpeg', fallback: "noimage.jpg" %>
         </div>
-        <h3></h3><%= link_to item.name, items_path(item) %>
+        <%= link_to item.name, item_path(item) %>
         <p>¥ <%= item.price %></p>
       <% end %>
     </div>

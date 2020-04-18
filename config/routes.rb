@@ -7,15 +7,12 @@ Rails.application.routes.draw do
   get 'orders/confirm' => 'orders#confirm'
   get 'orders/complete' => 'orders#complete'
   resources :items, only: [:index, :show]
+  delete 'cart_items' => 'cart_items#destroy_item', as: "destroy_item"
   resources :cart_items, only:[:index, :create, :destroy, :update]
-  delete '/cart_items/:id' => 'cart_items#destroy_item'
   resources :orders, only:[:index, :show, :new, :create]
   resources :customers, only:[:show, :edit, :create, :update]
   get 'customers/confirm' => 'customers#confirm'
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
-
-
-
 
   #管理側
   namespace :admins do

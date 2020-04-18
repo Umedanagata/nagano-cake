@@ -3,16 +3,20 @@ class CartItemsController < ApplicationController
     @cart_items = CartItem.all
   end
   def create
-    @cart_item = Item.find(params[:id])
-    @cart_item = current.customers.cart_items.new
-    @cart_item.customers_id = current.customers_id
+    @item = Item.find(params[:format])
+    @cart_item = current_customer.cart_items.build
+    @cart_item.item_id = @item.id
     @cart_item.save
+    redirect_to :cart_items
   end
   def destroy_item
-
+    @cart_item = current_customer.cart_items.where(customer_id: current_customer.id).destroy_all
+    redirect_to :cart_items
   end
   def destroy
-
+    @cart_item = current_customer.cart_items.find(params[:id])
+    @cart_item.destroy
+    redirect_to :cart_items
   end
   def update
 

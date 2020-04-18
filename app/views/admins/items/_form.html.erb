@@ -1,0 +1,66 @@
+
+
+		<%= form_with url: admins_items_path do |f| %>
+	</div>
+
+	<div class="item_new_image">
+		<div class="item_new_image">
+
+		</div>
+		<div class="item_new_image_btn">
+
+		</div>
+	</div>
+
+	<div class="item_new_name">
+		<div class="item_new_name">
+			<p>商品名</p>
+		</div>
+		<div>
+			<%= f.text_field :name %>
+		</div>
+	</div>
+
+	<div class="item_new_text">
+		<div class="item_new_text">
+			<p>商品説明</p>
+		</div>
+		<div>
+			<%= f.text_area :text %>
+		</div>
+	</div>
+
+	<div>
+		<div>
+			<p>ジャンル</p>
+		</div>
+
+		<div>
+			
+		</div>
+	</div>
+
+	<div>
+		<div>
+			<p>税抜価格</p>
+		</div>
+
+		<div>
+			<%= f.text_field :price %>
+		</div>
+	</div>
+
+	<div>
+		<div>
+			<p>販売ステータス</p>
+		</div>
+
+		<div>
+			
+		</div>
+	</div>
+
+	<div>
+		<%= f.submit %>
+	</div>
+	<% end %>

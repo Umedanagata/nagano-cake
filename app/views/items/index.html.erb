@@ -13,8 +13,8 @@
         <div class="items-image">
           <%= attachment_image_tag %>
         </div>
-        <%= item.name %>
-        <%= ¥ item.price %>
+        <h3></h3><%= link_to item.name, items_path(item) %>
+        <p>¥ <%= item.price %></p>
       <% end %>
     </div>
   </div>

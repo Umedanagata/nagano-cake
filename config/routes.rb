@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  namespace :admins do
+    get '/top'=>'top#top'
+    devise_for :customers
+    resources :items
+  end
+
+  root 'items#top'
+  get 'orders/confirm' => 'orders#confirm'
+  resources :items
+  resource :cart_items, only:[:index]
   devise_for :admins
   get 'addresses/index'
   get 'addresses/create'

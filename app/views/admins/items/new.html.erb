@@ -61,7 +61,7 @@
 		</div>
 
 		<div>
-			<%= f.select :is_sale, {販売中: 0, 売り切れ: 1} %>
+			<%= f.collection_select :is_sale @item %>
 		</div>
 	</div>
 

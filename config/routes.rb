@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   #顧客側
   devise_for :customers
   root 'items#top'
-  get 'orders/confirm' => 'orders#confirm'
-  get 'orders/complete' => 'orders#complete'
+  post 'orders/confirm' => 'orders#confirm', as: "orders_confirm"
+  get 'orders/complete' => 'orders#complete', as: "orders_complete"
   resources :items, only: [:index, :show]
   delete 'cart_items' => 'cart_items#destroy_item', as: "destroy_item"
   resources :cart_items, only:[:index, :create, :destroy, :update]

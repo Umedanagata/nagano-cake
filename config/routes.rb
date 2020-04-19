@@ -17,14 +17,14 @@ Rails.application.routes.draw do
   #管理側
   devise_for :admins , skip: :all
   devise_scope :admin do
-    get 'signin' => 'admins/sessions#new' , as: :new_admin_session
-    post  'signin' => 'admins/sessions#create' ,  as: :admin_session
-    delete 'logout' => 'admins/sessions#destroy' ,  as: :destroy_admin_session
+    get 'admins/signin' => 'admins/sessions#new' , as: :new_admin_session
+    post  'admins/signin' => 'admins/sessions#create' ,  as: :admin_session
+    delete 'admins/logout' => 'admins/sessions#destroy' ,  as: :destroy_admin_session
   end
   namespace :admins do
     get '/top'=>'top#top'
     resources :items
-    resources :genres, only:[:index, :create, :show, :edit, :update]
+    resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:index, :show, :update]
     patch 'admins/order_items/:id' => 'order_items#update'

@@ -1,13 +1,5 @@
 class Admins::OrderItemsController < ApplicationController
-	def index
+  def update
 
-	end
-
-	def show
-
-	end
-
-	def create
-
-	end
+  end
 end

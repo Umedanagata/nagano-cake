@@ -5,11 +5,11 @@ class Admins::CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params:id)
+    @customer = Customer.all
   end
 
   def edit
-  	@customer = Customer.find(params:id)
+  	@customer = Customer.all
   end
 
   def update

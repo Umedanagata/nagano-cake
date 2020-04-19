@@ -2,19 +2,17 @@ Rails.application.routes.draw do
 
 
   #顧客側
+  devise_for :customers
   root 'items#top'
   get 'orders/confirm' => 'orders#confirm'
   get 'orders/complete' => 'orders#complete'
   resources :items, only: [:index, :show]
+  delete 'cart_items' => 'cart_items#destroy_item', as: "destroy_item"
   resources :cart_items, only:[:index, :create, :destroy, :update]
-  delete '/cart_items/:id' => 'cart_items#destroy_item'
   resources :orders, only:[:index, :show, :new, :create]
   resources :customers, only:[:show, :edit, :create, :update]
   get 'customers/confirm' => 'customers#confirm'
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
-  devise_for :customers
-  
-
 
   #管理側
   namespace :admins do

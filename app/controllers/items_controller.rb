@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+
   def top
   end
 
@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @cart_item = current_customer.cart_items.build
   end
 
 end

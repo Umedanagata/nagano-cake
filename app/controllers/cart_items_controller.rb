@@ -3,7 +3,7 @@ class CartItemsController < ApplicationController
     @cart_items = CartItem.all
   end
   def create
-    @item = Item.find(params[:format])
+    @item = Item.find_by(params[:item_id])
     @cart_item = current_customer.cart_items.build
     @cart_item.item_id = @item.id
     @cart_item.save
@@ -28,6 +28,11 @@ class CartItemsController < ApplicationController
     end
     return amount
   end
-
   helper_method :amount
+
+  # private
+  # def cart_item_params
+  #   params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
+  #
+  # end
 end

@@ -1,5 +1,5 @@
 class Admins::ItemsController < ApplicationController
-
+	before_action :authenticate_admin!
 	before_action :set_genres, only: [:index, :new, :edit, :create,:update]
 
 	def index
@@ -16,7 +16,6 @@ class Admins::ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(item_params)
-		@genre = Genre.find(params[:genre_id])
 		@item.save
 		redirect_to admins_item_path(@item)
 	end
@@ -34,7 +33,6 @@ class Admins::ItemsController < ApplicationController
 	private
 
 	def item_params
-
 		params.require(:item).permit(:image , :name , :text , :price , :genre_id )
 	end
 

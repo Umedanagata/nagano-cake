@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
 
   #管理側
+  devise_for :admins
   namespace :admins do
     get '/top'=>'top#top'
     devise_for :customers
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :show, :update]
     patch 'admins/order_items/:id' => 'order_items#update'
   end
-  devise_for :admins
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

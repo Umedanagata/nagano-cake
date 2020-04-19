@@ -1,17 +1,18 @@
 class Admins::CustomersController
-	def index
 
-	end
+  def index
+    @customers = Customer.all
+  end
 
-	def show
+  def show
+    @customer = Customer.find(params:id)
+  end
 
-	end
+  def edit
+  	@customer = Customer.find(params:id)
+  end
 
-	def edit
+  def update
 
-	end
-
-	def update
-
-	end
+  end
 end

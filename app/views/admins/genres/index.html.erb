@@ -12,22 +12,17 @@
 
 <!-- ジャンル一覧 -->
 <table>
-  <tr>
-    <theat>
   	   <tr>
   		    <th>ジャンル</th>
   		    <th>状態</th>
   		    <th></th>
   	   </tr>
-    </theat>
 	  <% @genres.each do |genre| %>
-    <tbody>
 	      <tr>
 		       <td><%= genre.name %></td>
 		       <td><%= genre.genres_status %></td>
 		       <td><%= link_to "編集する", edit_admins_genre_path(genre) %></td>
 	      </tr>
-    </tbody>
     <% end %>
    </tr>
 </table>

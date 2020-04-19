@@ -1,10 +1,48 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <h3 class="thanks-message">ご購入ありがとうございました！</h3>
+    <div class="col-xs-7 col-xs-offset-1">
+      <h3>注文情報確認</h3>
+      <table class="table table-default">
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.price %></td>
+          <td><%= cart_item.quantity.to_i %></td>
+          <% amount = cart_item.quantity.to_i * cart_item.item.price %>
+          <td><%= amount %></td>
+        </tr>
+        <% end %>
+        <tr>
+      </table>
+      <h4>支払い方法</h4>
+      <%= @order.payment_method %>
+      <h4>お届け先</h4>
+      <%= @order.postcode %><%= @order.address %><%= @order.ship_name %>
+      <%= link_to "購入を確定する", orders_path, method: :post, class: "btn btn-success" %>
+    </div>
+    <div class="col-xs-3">
+      <h3></h3>
+      <table class="table table-default">
+        <tr>
+          <th>送料</th>
+          <td>¥<%= @order.postage.to_i %></td>
+        </tr>
+        <tr>
+          <th>商品合計</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>請求金額</th>
+          <td></td>
+        </tr>
+      </table>
 
     </div>
-
   </div>
-
 </div>

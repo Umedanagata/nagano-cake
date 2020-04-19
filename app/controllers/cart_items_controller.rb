@@ -1,10 +1,10 @@
 class CartItemsController < ApplicationController
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items.all
   end
   def create
-    @item = Item.find_by(params[:item_id])
-    @cart_item = current_customer.cart_items.build
+    @item = Item.find_by(params[:id])
+    @cart_item = current_customer.cart_items.build(cart_item_params)
     @cart_item.item_id = @item.id
     @cart_item.save
     redirect_to :cart_items
@@ -30,9 +30,8 @@ class CartItemsController < ApplicationController
   end
   helper_method :amount
 
-  # private
-  # def cart_item_params
-  #   params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
-  #
-  # end
+  private
+  def cart_item_params
+    params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
+  end
 end

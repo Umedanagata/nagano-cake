@@ -9,6 +9,7 @@
           <th>数量</th>
           <th>小計</th>
         </tr>
+        <% sum = 0 %>
         <% @cart_items.each do |cart_item| %>
         <tr>
           <td><%= attachment_image_tag cart_item.item, :image, :fill, 110, 70,
@@ -19,12 +20,13 @@
           <td><%= cart_item.quantity.to_i %></td>
           <% amount = (cart_item.quantity).to_i * price %>
           <td>¥<%= amount %></td>
+          <% sum += amount %>
         </tr>
         <% end %>
         <tr>
       </table>
       <h4>支払い方法</h4>
-      <%= @order.payment_method %>
+      <%= @order.payment_method_i18n %>
       <h4>お届け先</h4>
       〒<%= @order.postcode %><br>
       <%= @order.address %><br>
@@ -40,11 +42,11 @@
         </tr>
         <tr>
           <th>商品合計</th>
-          <td></td>
+          <td>¥<%= sum %></td>
         </tr>
         <tr>
           <th>請求金額</th>
-          <td></td>
+          <td>¥<%= sum + @order.postage.to_i %></td>
         </tr>
       </table>
 

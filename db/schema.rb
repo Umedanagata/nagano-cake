@@ -42,8 +42,16 @@ ActiveRecord::Schema.define(version: 2020_04_19_060556) do
   end
 
   create_table "customers", force: :cascade do |t|
+    t.string "family_name"
+    t.string "last_name"
+    t.string "family_name_kana"
+    t.string "last_name_kana"
+    t.string "postcode"
+    t.string "address"
+    t.string "phone_number"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "is_active"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -89,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_060556) do
     t.string "address"
     t.string "postcode"
     t.string "ship_name"
-    t.integer "postage"
+    t.integer "postage", default: 800
     t.integer "amount"
     t.integer "payment_method"
     t.integer "orders_status"

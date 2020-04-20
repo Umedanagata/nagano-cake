@@ -21,14 +21,6 @@ class CartItemsController < ApplicationController
     @cart_item.update(cart_item_params)
     redirect_to :cart_items
   end
-  def amount(cart_items)
-    cart_items.each do |cart_item|
-      amount = cart_item.quantity * cart_item.price
-      amount += quantity
-    end
-    return amount
-  end
-  helper_method :amount
 
   private
   def cart_item_params

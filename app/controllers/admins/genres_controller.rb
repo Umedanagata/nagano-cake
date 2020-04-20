@@ -9,7 +9,7 @@ class Admins::GenresController < ApplicationController
   def create
     @newgenre = Genre.new(genre_params)
     @newgenre.save
-    redirect_to edit_admins_genre_path(@newgenre)
+    redirect_to admins_genres_path
  # nameバリデーション入れる
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_155052) do
+ActiveRecord::Schema.define(version: 2020_04_20_025003) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customers_id"
@@ -42,8 +42,16 @@ ActiveRecord::Schema.define(version: 2020_04_18_155052) do
   end
 
   create_table "customers", force: :cascade do |t|
+    t.string "family_name"
+    t.string "last_name"
+    t.string "family_name_kana"
+    t.string "last_name_kana"
+    t.string "postcode"
+    t.string "address"
+    t.string "phone_number"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "is_active"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -56,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_155052) do
   create_table "genres", force: :cascade do |t|
     t.integer "item_id"
     t.string "name"
-    t.boolean "genres_status"
+    t.boolean "is_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

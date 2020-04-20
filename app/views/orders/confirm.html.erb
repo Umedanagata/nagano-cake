@@ -1,3 +1,10 @@
+<header>
+  <style media="screen">
+    .amount-box {
+      padding-top: 55px;
+    }
+  </style>
+</header>
 <div class="container">
   <div class="row">
     <div class="col-xs-7 col-xs-offset-1">
@@ -34,22 +41,22 @@
       <%= link_to "購入を確定する", orders_path, method: :post, class: "btn btn-success" %>
     </div>
     <div class="col-xs-3">
-      <h3></h3>
-      <table class="table table-default">
-        <tr>
-          <th>送料</th>
-          <td>¥<%= @order.postage.to_i %></td>
-        </tr>
-        <tr>
-          <th>商品合計</th>
-          <td>¥<%= sum %></td>
-        </tr>
-        <tr>
-          <th>請求金額</th>
-          <td>¥<%= sum + @order.postage.to_i %></td>
-        </tr>
-      </table>
-
+      <div class="amount-box">
+        <table class="table table-default">
+          <tr>
+            <th>送料</th>
+            <td>¥<%= @order.postage.to_i %></td>
+          </tr>
+          <tr>
+            <th>商品合計</th>
+            <td>¥<%= sum %></td>
+          </tr>
+          <tr>
+            <th>請求金額</th>
+            <td>¥<%= sum + @order.postage.to_i %></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>

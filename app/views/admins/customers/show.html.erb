@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+
+    <h2>会員詳細画面</h2>
+
+<!-- 会員一覧表示 -->
+    <table class="table table-default">
+      <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>フリガナ</th>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>メールアドレス</th>
+      </tr>
+      <tr>
+        <td><%= "#"%></td>
+　　　　 <td><%= "#"%></td>
+        <td><%= "#"%></td>
+        <td><%= "#"%></td>
+        <td><%= "#"%></td>
+        <td><%= "#"%></td>
+        <td><%= "#"%></td>
+      </tr>
+    </table>
+
+<!-- 編集・注文一覧リンク -->
+    <%= link_to " 会員index仮リンク", admins_customers_path %>
+
+    <%= link_to "編集する", edit_admins_customer_path(1)%>
+    <%= link_to "注文一覧を見る", admins_orders_path%>
+
+  </div>
+</div>

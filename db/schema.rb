@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_095202) do
+ActiveRecord::Schema.define(version: 2020_04_19_060556) do
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "customers_id"
+    t.integer "customer_id"
     t.string "postcode"
     t.string "address"
     t.string "ship_name"
@@ -34,24 +34,16 @@ ActiveRecord::Schema.define(version: 2020_04_16_095202) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "items_id"
-    t.integer "customers_id"
+    t.integer "item_id"
+    t.integer "customer_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "family_name"
-    t.string "last_name"
-    t.string "family_name_kana"
-    t.string "last_name_kana"
-    t.string "postcode"
-    t.string "address"
-    t.string "phone_number"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.boolean "is_active"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -77,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_095202) do
     t.boolean "is_sale"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "genre_id"
+    t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -91,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_095202) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customers_id"
+    t.integer "customer_id"
     t.string "address"
     t.string "postcode"
     t.string "ship_name"

@@ -1,13 +1,13 @@
 class Admins::OrdersController < ApplicationController
-	def index
+  def index
 
-	end
+  end
 
-	def show
+  def show
 
-	end
+  end
 
-	def update
+  def update
 
-	end
+  end
 end

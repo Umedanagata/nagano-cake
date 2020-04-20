@@ -1,5 +1,5 @@
 <h1>items edit</h1>
-<%= form_for @item ,url: admins_item_path , method: :get  do |f| %>
+<%= form_for @item ,url: admins_item_path , method: :patch  do |f| %>
   <div class="container">
 	<div class="col-xs-3 ">
 		<div class="item_new_image">
@@ -34,9 +34,8 @@
 		<div>
 			<p>ジャンル</p>
 		</div>
-
 		<div>
-			
+			<%= f.collection_select :genre_id , @genres , :id, :name ,{include_blank: "----"} %>
 		</div>
 	</div>
 
@@ -56,7 +55,7 @@
 		</div>
 
 		<div>
-			
+			<%= f.select :is_sale, {販売中: 0, 売り切れ: 1} %>
 		</div>
 	</div>
 

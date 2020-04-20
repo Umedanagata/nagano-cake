@@ -17,7 +17,9 @@ class CartItemsController < ApplicationController
     redirect_to :cart_items
   end
   def update
-
+    # @cart_item = current_customer.cart_items.find(params[:])
+    # @cart_item.update
+    # redirect_to :cart_items
   end
   def amount(cart_items)
     cart_items.each do |cart_item|

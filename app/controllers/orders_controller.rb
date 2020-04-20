@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   end
   def new
     @order = current_customer.orders.new
-    @address = current_customer.addresses.build
+    @address = current_customer.addresses
   end
   def show
 
@@ -16,10 +16,6 @@ class OrdersController < ApplicationController
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
       @order.ship_name = current_customer.family_name + current_customer.last_name
-    elsif params[:address_select] == "2"
-      @order.postcode = params[:postcode]
-      @order.address = params[:address]
-      @order.ship_name = params[:ship_name]
     end
   end
 
@@ -36,11 +32,4 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method, :postcode, :address, :ship_name)
   end
-  # def address_select(order_params)
-  #   if address_select == 0
-  #     @order.address == current_customer.addresses
-  #   elsif address_select == 2
-  #     @order.address == current_customer.addresses.new(order_params)
-  #   end
-  # end
 end

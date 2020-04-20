@@ -5,12 +5,11 @@
 
 	<div>
 		<div>
-			<h3>本日の注文件数</h3>
+			<h3>本日の注文件数 <%=link_to (@order.count)%>件</h3>
 		</div>
+	</div>
 
-		<div>
-			<h3><%=link_to (@order.count)%>件</h3>
-		</div>
-		
+	<div>
+		<%= button_to "logout" , destroy_admin_session_path ,method: :delete %>
 	</div>
 </div>

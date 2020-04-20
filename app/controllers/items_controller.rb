@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
   def show
     @item = Item.find(params[:id])
-    @cart_item = current_customer.cart_items.build
+    @cart_item = CartItem.new
   end
 
   private

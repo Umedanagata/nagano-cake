@@ -7,13 +7,12 @@ class Admins::CustomersController < ApplicationController
   end
 
   def show
-    @orders = Order.all
-    @order_items = OrderItem.all
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-  	@orders = Order.all
-    @order_items = OrderItem.all
+  	@customer = Customer.find(params[:id])
+
   end
 
   def update

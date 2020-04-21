@@ -1,67 +1,56 @@
-<h1>items edit</h1>
-<%= form_for @item ,url: admins_item_path , method: :patch  do |f| %>
-  <div class="container">
-	<div class="col-xs-3 ">
-		<div class="item_new_image">
-          <%= attachment_image_tag @item , :image ,:fill ,200 ,200 ,fallback: 'noimage.jpg' %>
-		</div>
-		<div class="item_new_image_btn">
-			<%= f.attachment_field :image %>
-		</div>
+
+<div class="container">
+  	<div class="item_new_logo">
+	  <h3><strong>商品 編集画面</strong></h3>
+    </div><br>
+
+    <%= form_for @item ,url: admins_item_path , method: :patch  do |f| %>
+
+	<div class="col-xs-6">
+	  <div class="item_show_image">
+          <%= attachment_image_tag @item , :image , :fill ,500, 300 ,fallback: 'cake.jpg' %>
+	  </div><br>
+	  <div class="image_wrapper">
+	  	<div class="item_image_btn">
+	      <%= f.attachment_field :image , class: "btn btn-info , new_image ", id: "file" %>
+        </div>
+        <div id="img_field" onClick="$('#file').click()" >
+      	  <p>画像選択</p>
+        </div>
+	  </div>
 	</div>
 
-	<div class="col-xs-6 ">
+	<div class="col-xs-2 ">
+	  <div class="item_box">
+		<p><strong>商品名</strong></p>
+	  </div><br>
 
-	<div class="item_new_name">
-		<div class="item_new_name">
-			<p>商品名</p>
-		</div>
-		<div>
-			<%= f.text_field :name %>
-		</div>
-	</div>
+	  <div class="item_box">
+		<p><strong>商品説明</strong></p>
+	  </div><br><br><br><br><br><br><br><br>
 
-	<div class="item_new_text">
-		<div class="item_new_text">
-			<p>商品説明</p>
-		</div>
-		<div>
-			<%= f.text_area :text %>
-		</div>
-	</div>
+	  <div class="item_box">
+		<p><strong>ジャンル</strong></p>
+	  </div><br>
 
-	<div>
-		<div>
-			<p>ジャンル</p>
-		</div>
-		<div>
-			<%= f.collection_select :genre_id , @genres , :id, :name ,{include_blank: "----"} %>
-		</div>
-	</div>
+	  <div class="item_box">
+		<p><strong>税抜価格</strong></p>
+	  </div><br><br>
 
-	<div>
-		<div>
-			<p>税抜価格</p>
-		</div>
+	  <div class="item_box">
+		<p><strong>販売ステータス</strong></p>
+	  </div>
+    </div>
 
-		<div>
-			<%= f.text_field :price %>
-		</div>
-	</div>
-
-	<div>
-		<div>
-			<p>販売ステータス</p>
-		</div>
-
-		<div>
-			<%= f.select :is_sale, {販売中: 0, 売り切れ: 1} %>
-		</div>
-	</div>
-
-	<div class="col-xs-3 ">
-		<%= f.submit "変更を保存"%>
-	</div>
-  </div>
-  </div>
-	<% end %>
+    <div class="col-xs-4" >
+    	<div><%= f.text_field :name , class:"item_select" , placeholder: "例:ショートケーキ"%></div><br>
+    	<div><%= f.text_area :text , class:"item_select , text_area" , placeholder: "例:イチゴたっぷりの...." %></div><br><br>
+		<div><%= f.collection_select :genre_id , @genres , :id, :name ,{include_blank: "----"} , class:"item_select" %></div><br><br>
+		<div><%= f.text_field :price , class:"item_select" %></div><br><br>
+		<div><%= f.select :is_sale ,[['販売中',true],['売り切れ',false]] , class:"item_select" %></div><br><br><br>
+		<div class="item_btn">
+	  	  <%= f.submit "変更を保存" , class:"btn btn-info , item_select" %>
+	    </div>
+    </div>
+    <% end %>
+</div>

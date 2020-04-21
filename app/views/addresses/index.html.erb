@@ -21,7 +21,8 @@
 
         <div class="action">
           <%= f.submit "登録する", class: "btn btn-success" %>
-        <% end %>
+        </div>
+        <% end %><br>
 
         <table class="table">
           <tr>
@@ -36,7 +37,7 @@
           	<td><%= f.address %></td>
           	<td><%= f.ship_name %></td>
           	<td><%= link_to "編集する", edit_address_path(@addresses), class: "btn btn-info" %>
-          		<%= link_to "削除する", @addresses, method: :delete, class: "btn btn_danger" %>
+          		<%= link_to "削除する", addresses_path(@addresses), method: :delete, class: "btn btn_danger" %>
           	</td>
           </tr>
           <% end %>

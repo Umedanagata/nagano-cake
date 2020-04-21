@@ -1,24 +1,24 @@
 class AddressesController < ApplicationController
   def index
-    @addresses = Address.all
-    @address =  Address.new
+    @addresses = current_customer.addresses.all
+    @address =  current_customer.addresses.new
   end
 
   def create
-    @address = Address.new(address_params)
+    @address = current_customer.addresses.new(address_params)
     if @address.save
-      redirect_to edit_address_path(@address.id)
+      redirect_to addresses_path
     else
       render "index"
     end
   end
 
   def edit
-    @address = Address.find(params[:id])
+    @address = current_customer.addresses.find(params[:id])
   end
 
   def update
-    @address = Address.find(params[:id])
+    @address = current_customer.addresses.find(params[:id])
     if @addres.update(address_params)
       redirect_to @address
     else
@@ -27,7 +27,7 @@ class AddressesController < ApplicationController
   end
 
   def destroy
-    @address = Address.find(params[:id])
+    @address = current_customer.address.find(params[:id])
     @address.destroy
     redirect_to addresses_path
   end

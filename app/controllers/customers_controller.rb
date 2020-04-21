@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
-  
+
+  before_action :authenticate_user!
   def confirm
   end
 
@@ -7,7 +8,9 @@ class CustomersController < ApplicationController
   end
 
   def show
+
     @customer = current_customer
+
   end
 
   def edit
@@ -26,5 +29,10 @@ class CustomersController < ApplicationController
 private
   def customer_params
     params.require(:customer).permit(:family_name, :last_name, :family_name_kana, :last_name_kana, :postcode, :address, :phone_number, :email)
+  end
+
+private
+  def customer
+    params.require(:castomer).permit(:family_name, :last_name, :family_name_kana, :last_name_kana, :postcode, :adress, :phone_namber, :email)
   end
 end

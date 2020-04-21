@@ -2,7 +2,7 @@
   <div class="row">
       <h2>配送先編集</h2><br>
 
-      <%=form_for (@address) do |f|%>
+      <%=form_for (@addresses) do |f|%>
       <div class="col-xs-9 col-xs-offset-3">
         <div class="field"><br>
           <%= f.label "郵便番号（ハイフンなし）" %>
@@ -18,3 +18,10 @@
           <%= f.label "宛名" %>
           <%= f.text_field :ship_name %>
         </div>
+
+        <div class="action"><br>
+          <%=f.submit"保存する" %>
+        </div>
+       <% end %>
+  </div>
+</div>

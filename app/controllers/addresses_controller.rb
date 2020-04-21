@@ -14,22 +14,22 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    @address = current_customer.addresses.find(params[:id])
+    @addresses = current_customer.addresses.find(params[:id])
   end
 
   def update
-    @address = current_customer.addresses.find(params[:id])
-    if @addres.update(address_params)
-      redirect_to @address
+    @addresses = current_customer.addresses.find(params[:id])
+    if @addresses.update(address_params)
+      redirect_to :addresses
     else
       render "edit"
     end
   end
 
   def destroy
-    @address = current_customer.address.find(params[:id])
-    @address.destroy
-    redirect_to addresses_path
+    @addresses = current_customer.addresses.find(params[:id])
+    @addresses.destroy
+    redirect_to :addresses
   end
 
   private

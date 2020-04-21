@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_04_20_025003) do
 
-
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
     t.string "postcode"
@@ -98,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_025003) do
     t.string "address"
     t.string "postcode"
     t.string "ship_name"
-    t.integer "postage"
+    t.integer "postage", default: 800
     t.integer "amount"
     t.integer "payment_method"
     t.integer "orders_status"

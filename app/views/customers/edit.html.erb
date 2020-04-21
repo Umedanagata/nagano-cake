@@ -1,2 +1,49 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+      <h2>登録情報編集</h2><br>
+
+      <%= form_for(@customer) do |f| %>
+        <%= render "devise/shared/error_messages", resource: @customer %>
+      <div class="col-xs-9 col-xs-offset-3">
+        <div class="field"><br>
+          <%= f.label "名前" %>
+          <%= f.label "(姓)" %>
+          <%= f.text_field :family_name, placeholder: "山田" %>
+          <%= f.label "(名)" %>
+          <%= f.text_field :last_name, placeholder: "花子" %><br>
+        </div>
+        <div class="field"><br>
+          <%= f.label "(セイ)" %>
+          <%= f.text_field :family_name_kana, placeholder: "ヤマダ" %>
+          <%= f.label "(メイ)" %>
+          <%= f.text_field :last_name_kana, placeholder: "ハナコ" %><br>
+        </div>
+
+        <div class="field"><br>
+          <%= f.label "メールアドレス" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field"><br>
+          <%= f.label "郵便番号（ハイフンなし）" %>
+          <%= f.text_field :postcode %>
+        </div>
+
+        <div class="field"><br>
+          <%= f.label "住所" %>
+          <%= f.text_field :address %>
+        </div>
+
+        <div class="field"><br>
+          <%= f.label "電話番号（ハイフンなし）" %>
+          <%= f.text_field :phone_number %>
+        </div>
+
+        <div class="actions"><br>
+          <%=f.submit "編集内容を保存する", class: "btn btn-info" %>
+          <%= link_to "退会する", customers_confirm_path, class: "btn btn-danger" %>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>

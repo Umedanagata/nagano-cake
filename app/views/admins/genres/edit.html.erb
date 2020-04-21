@@ -1,12 +1,22 @@
-<h2>ジャンル編集画面</h2>
+<div class="container">
+  <div class="row">
+
+    <h2>ジャンル編集画面</h2>
 
 <!-- ジャンル名前編集・ステータス変更 -->
-<%= form_for(@genre, url: admins_genre_path, method: :patch) do |f| %>
-    <p>
+    <%= form_for(@genre, url: admins_genre_path, method: :patch) do |f| %>
+      <p>
         <span>ジャンル</span>
         <%= f.text_field :name %>
-        <!-- status -->
+<!-- status -->
+        <%= f.check_box :is_status, autofocus: true %>
 <!-- 有効・無効 -->
         <%= f.submit '変更を保存する' %>
-    </p>
-<% end %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%= link_to " 会員index仮リンク", admins_customers_path %>

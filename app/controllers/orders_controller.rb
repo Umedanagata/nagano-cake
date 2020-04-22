@@ -31,13 +31,11 @@ class OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @order.save
     @cart_items = current_customer.cart_items.all
-
     @cart_items.each do |cart_item|
       @order_items = @order.order_items.new
       @order_items.item_id = cart_item.item.id
       @order_items.save
     end
-
     current_customer.cart_items.destroy_all
     redirect_to orders_complete_path
   end

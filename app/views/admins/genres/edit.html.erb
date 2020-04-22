@@ -9,14 +9,14 @@
         <span>ジャンル</span>
         <%= f.text_field :name %>
 <!-- status -->
-        <%= f.check_box :is_status, autofocus: true %>
+        <%= f.radio_button :is_status, :true %>
+        <%= f.label :is_status,"有効", {value: :true, style: "display :inline-block;"} %>
+        <%= f.radio_button :is_status, :false %>
+        <%= f.label :is_status,"無効", {value: :false, style: "display :inline-block;"} %>
 <!-- 有効・無効 -->
         <%= f.submit '変更を保存する' %>
       </p>
     <% end %>
+    <%= link_to " 会員index仮リンク", admins_customers_path %>
   </div>
 </div>
-
-
-
-<%= link_to " 会員index仮リンク", admins_customers_path %>

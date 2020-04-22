@@ -1,9 +1,10 @@
 class Admins::ItemsController < ApplicationController
 	before_action :authenticate_admin!
 	before_action :set_genres, only: [:index, :new, :edit, :create,:update]
+	PER = 3
 
 	def index
-		@items = Item.all
+		@items = Item.page(params[:page]).per(PER)
 	end
 
 	def show
@@ -16,8 +17,12 @@ class Admins::ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(item_params)
-		@item.save
+		if @item.save
 		redirect_to admins_item_path(@item)
+		flash[:item_new] = "商品を新規登録しました"
+	    else
+	    	render new_admins_item_path
+	    end
 	end
 
 	def edit
@@ -26,7 +31,11 @@ class Admins::ItemsController < ApplicationController
 
 	def update
 		@item = Item.find(params[:id])
-		@item.update(item_params)
+		if @item.update(item_params)
+		   flash[:item_update] = "商品内容を変更しました"
+		else
+			render back
+		end
 		redirect_to admins_item_path(@item)
 	end
 

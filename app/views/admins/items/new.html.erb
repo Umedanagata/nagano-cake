@@ -5,10 +5,11 @@
     </div><br>
 
     <%= form_for @item , url: admins_items_path , method: :post do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
 
 	<div class="col-xs-6">
 	  <div class="item_show_image">
-          <%= attachment_image_tag @item , :image ,fallback: 'cake.jpg' %>
+          <%= attachment_image_tag @item , :image ,fallback: 'noimage.jpg' %>
 	  </div><br>
 	  <div class="image_wrapper">
 	  	<div class="item_image_btn">

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+
+    <h2>会員一覧画面</h2>
+
+<!-- 会員一覧表示 -->
+    <table class="table table-default">
+      <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+      </tr>
+
+      <%= @customers.each do |customer| %>
+      <tr>
+          <td><%=customer.id%></td>
+<!-- 編集リンク -->
+          <td>
+          <%=customer.family_name%>
+          </td>
+          <td><%=customer.address%></td>
+          <td><%=customer.is_active%></td>
+      </tr>
+      <% end %>
+    </table>
+<!-- ページャ実装 -->
+  </div>
+</div>
+
+<%= link_to "ジャンル仮リンク", admins_genres_path %>
+<%= link_to "show仮リンク", admins_customer_path(1) %>

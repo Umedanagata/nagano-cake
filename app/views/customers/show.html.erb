@@ -1,2 +1,36 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<h2>マイページ</h2>
+<strong>登録情報</strong>
+  <%= link_to "編集する", edit_customer_path(@custmer) %>
+  <%= link_to "パスワードを変更する", %>
+
+  <div class="name">氏名
+    <%= @custmer.family_name %>
+    <%= @custmer.last_name %>
+  </div>
+
+  <div class="kana">カナ
+    <%= @custmer.family_name_kana %>
+    <%= @custmer.last_name_kana %>
+  </div>
+
+  <div class="postcode">郵便番号
+    <%= @custmer.postcode %>
+  </div>
+
+  <div class="adress">住所
+    <%= @custmer.adress %>
+  </div>
+
+  <div class="phone_namber">電話番号
+    <%= @custmer.phone_namber %>
+  </div>
+
+  <div class="email">メールアドレス
+    <%= @custmer.email %>
+  </div>
+
+<strong>配送先</strong>
+  <%= link_to "一覧を見る", addreses_path %>
+
+<strong>注文履歴</strong>
+  <%= link_to "一覧を見る", orders_path %>

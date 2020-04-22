@@ -7,11 +7,9 @@ class OrdersController < ApplicationController
     @order = current_customer.orders.new
     @address = current_customer.addresses.all
   end
-
   def show
 
   end
-
   def confirm
     @order = current_customer.orders.new(order_params)
     @cart_items = current_customer.cart_items.all
@@ -30,7 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_customer.orders.new
+    @order = current_customer.orders.new(order_params)
     @order.save
     current_customer.cart_items.destroy_all
     redirect_to orders_complete_path

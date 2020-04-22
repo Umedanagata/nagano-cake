@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   #顧客側
   devise_for :customers
   root 'items#top'
@@ -17,9 +16,9 @@ Rails.application.routes.draw do
   #管理側
   devise_for :admins , skip: :all
   devise_scope :admin do
-    get 'admins/signin' => 'admins/sessions#new' , as: :new_admin_session
-    post  'admins/signin' => 'admins/sessions#create' ,  as: :admin_session
-    delete 'admins/logout' => 'admins/sessions#destroy' ,  as: :destroy_admin_session
+    get 'admins/sign_in' => 'admins/sessions#new' , as: :new_admin_session
+    post  'admins/sign_in' => 'admins/sessions#create' ,  as: :admin_session
+    delete 'admins/log_out' => 'admins/sessions#destroy' ,  as: :destroy_admin_session
   end
   namespace :admins do
     get '/top'=>'top#top'

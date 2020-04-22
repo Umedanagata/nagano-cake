@@ -1,69 +1,40 @@
-<h1>items show</h1>
-<div class="item_new_continer">
-<div class="item_new_logo">
-		<h3>商品新規登録画面</h3>
+<div class="container">
+  	<div class="item_new_logo">
+	  <h3><strong>商品 詳細画面</strong></h3>
+    </div><br>
+
+	<div class="col-xs-6">
+	  <div class="item_show_image">
+          <%= attachment_image_tag @item , :image , :fill ,500 ,300 ,fallback: 'cake.jpg' %>
+	  </div>
+	</div>
+
+	<div class="col-xs-6">
+	  <table class="table">
+			<tr>
+				<th>商品名</th>
+				<td><%= @item.name %></td>
+			</tr>
+			<tr>
+				<th>商品説明</th>
+				<td><%= @item.text %></td>
+			</tr>
+			<tr>
+				<th>ジャンル</th>
+				<td><%= @item.genre.name%></td>
+			</tr>
+			<tr>
+				<th>税込価格(税抜価格)</th>
+				<td><%= (@item.price*1.1).floor %> ( <%= @item.price %> ) 円</td>
+			</tr>
+			<tr>
+				<th>販売ステータス</th>
+				<td><%= @item.is_sale ?  '販売中' : '売り切れ' %></td>
+			</tr>
+	  </table><br><br>
+	   <div class="edit_btn">
+	     <%= link_to "編集する" , edit_admins_item_path , class: "btn btn-info btn-lg " %>
+	   </div>
+    </div>
 </div>
-</div>
 
-  <div class="container">
-	<div class="col-xs-3 ">
-		<div class="item_show_image">
-          <%= attachment_image_tag @item , :image ,:fill ,200 ,200 ,fallback: 'noimage.jpg' %>
-		</div>
-	</div>
-
-	<div class="col-xs-6 ">
-
-	<div class="item_new_name">
-		<div class="item_new_name">
-			<p>商品名</p>
-		</div>
-		<div>
-          <%= @item.name %>
-		</div>
-	</div>
-
-	<div class="item_new_text">
-		<div class="item_new_text">
-			<p>商品説明</p>
-		</div>
-		<div>
-          <%= @item.text %>
-		</div>
-	</div>
-
-	<div>
-		<div>
-			<p>ジャンル</p>
-		</div>
-
-		<div>
-
-		</div>
-	</div>
-
-	<div>
-		<div>
-			<p>税抜価格</p>
-		</div>
-
-		<div>
-          <%= @item.price %>
-		</div>
-	</div>
-
-	<div>
-		<div>
-			<p>販売ステータス</p>
-		</div>
-
-		<div>
-			<%= @item.is_sale %>
-		</div>
-	</div>
-
-	<div class="col-xs-3 ">
-      <%= link_to "編集する" , edit_admins_item_path%>
-	</div>
-  </div>
-  </div>

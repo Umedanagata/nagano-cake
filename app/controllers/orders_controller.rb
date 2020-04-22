@@ -33,7 +33,6 @@ class OrdersController < ApplicationController
     @cart_items = current_customer.cart_items.all
 
     @cart_items.each do |cart_item|
-      p cart_item.item
       @order_items = @order.order_items.new
       @order_items.item_id = cart_item.item.id
       @order_items.save

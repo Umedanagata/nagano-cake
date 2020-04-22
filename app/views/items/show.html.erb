@@ -5,7 +5,8 @@
     </div>
     <div class="col-xs-8">
       <div class="item-image">
-        <%= attachment_image_tag @item, :image, :fill, 500, 350 %>
+        <%= attachment_image_tag @item, :image, :fill, 500, 350, fallback: "noimage.jpg",
+          size: "300x200" %>
       </div>
       <h2><%= @item.name %></h2>
       <p><%= @item.text %></p><br>

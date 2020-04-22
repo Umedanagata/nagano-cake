@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-9">
-      <%= form_for @order, url: orders_confirm_path, method: :post do |f| %>
+      <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
       <h3>注文情報入力</h3>
       <h4>支払い情報</h4>
         <%= f.radio_button :payment_method, :credit, checked: true %>
@@ -15,20 +15,19 @@
             <p>　　　<%= current_customer.address %></p>
             <p>　　　<%= current_customer.family_name %><%= current_customer.last_name %></p>
         <%= radio_button_tag("address_select",1) %>
-        <%= f.label "登録済み住所から選択" %><br>
-        <p>　　　<%= f.collection_select(:address, @address, :id,
-                (":postcode"+":address")) %><br></p>
+          <%= f.label "登録済み住所から選択" %><br>
+            <p>　　　<%= f.collection_select :destination, @address, :id, :destination %><br></p>
         <%= radio_button_tag("address_select", 2) %>
           <%= f.label "新しいお届け先" %><br>
-          <p>　　　<%= f.label "郵便番号" %>
-                  <%= f.text_field :postcode %><br>
-          </p>
-          <p>　　　<%= f.label "住所" %>
-                  <%= f.text_field :address, size: "50x30" %><br>
-          </p>
-          <p>　　　<%= f.label "宛名" %>
-                  <%= f.text_field :ship_name %><br>
-          </p>
+            <p>　　　<%= f.label "郵便番号" %>
+                    <%= f.text_field :postcode %><br>
+            </p>
+            <p>　　　<%= f.label "住所" %>
+                    <%= f.text_field :address, size: "50x30" %><br>
+            </p>
+            <p>　　　<%= f.label "宛名" %>
+                    <%= f.text_field :ship_name %><br>
+            </p>
         <%= f.submit "確認画面へ進む", class: "btn btn-default" %>
         <% end %>
     </div>

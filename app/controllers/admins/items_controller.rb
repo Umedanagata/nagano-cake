@@ -1,9 +1,10 @@
 class Admins::ItemsController < ApplicationController
 	before_action :authenticate_admin!
 	before_action :set_genres, only: [:index, :new, :edit, :create,:update]
+	PER = 3
 
 	def index
-		@items = Item.all
+		@items = Item.page(params[:page]).per(PER)
 	end
 
 	def show

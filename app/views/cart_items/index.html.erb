@@ -2,7 +2,27 @@
   <div class="row">
     <div class="col-xs-10 col-offset-xs-1">
       <% if @cart_items.empty? %>
-        <h3>カートは空です</h3>
+      <table class="table table-default">
+          <tr>
+            <th><%= current_customer.family_name %>さんのショッピングカート</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+          <tr>
+            <th>カートに商品がありません</th>
+            <th><%= link_to "トップページへ", root_path, class: "btn btn-success" %></th>
+            <th><%= link_to "商品一覧へ", items_path, class:"btn btn-info" %></th>
+            <th><%= link_to "店を出る", destroy_customer_session_path(current_customer.id),
+               method: :delete, class: "btn btn-danger", data: {confirm: "ログアウトしますか？"} %></th>
+          </tr>
+
 
       <% else %>
       <table class="table table-striped">
@@ -25,9 +45,12 @@
           <% @cart_items.each do |cart_item| %>
 
           <tr>
-            <td><%= attachment_image_tag cart_item.item, :image, :fill, 110, 70,
+            <td><%= link_to item_path(cart_item.item.id) do %>
+              <%= attachment_image_tag cart_item.item, :image, :fill, 110, 70,
               fallback: "noimage.jpg" %>
-              <%= cart_item.item.name %></td>
+              <%= cart_item.item.name %>
+              <% end %>
+            </td>
               <% price = (cart_item.item.price * 1.08).floor %>
             <td>¥<%= price %></td>
 

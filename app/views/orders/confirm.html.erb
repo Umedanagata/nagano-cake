@@ -41,7 +41,7 @@
       <p>　　　〒<%= @order.postcode %></p>
       <p>　　　<%= @order.address %></p>
       <p>　　　<%= @order.ship_name %></p>
-      <%= form_for @order, url: orders_path do |f| %>
+      <%= form_for [@order], url: orders_path do |f| %>
         <%= f.hidden_field :payment_method, :value => @order.payment_method %>
         <%= f.hidden_field :postcode, :value => @order.postcode %>
         <%= f.hidden_field :address, :value => @order.address %>

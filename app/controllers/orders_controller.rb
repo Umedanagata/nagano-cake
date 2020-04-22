@@ -30,6 +30,15 @@ class OrdersController < ApplicationController
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
+    @cart_items = current_customer.cart_items.all
+
+    @cart_items.each do |cart_item|
+      p cart_item.item
+      @order_items = @order.order_items.new
+      @order_items.item_id = cart_item.item.id
+      @order_items.save
+    end
+
     current_customer.cart_items.destroy_all
     redirect_to orders_complete_path
   end
@@ -43,5 +52,8 @@ class OrdersController < ApplicationController
   end
   def order_params
     params.require(:order).permit(:payment_method, :postcode, :address, :ship_name)
+  end
+  def order_items_params
+    params.require(:order_items).permit(:order_id)
   end
 end

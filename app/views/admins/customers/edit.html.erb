@@ -1,33 +1,52 @@
 <div class="container">
   <div class="row">
+    <div class="col-xs-9">
 
   <h2>会員編集画面</h2>
-
 <!-- 会員編集画面 -->
-  <table class="table table-default">
-      <tr>
-          <th>会員ID</th>
-          <th>氏名</th>
-          <th>フリガナ</th>
-          <th>郵便番号</th>
-          <th>住所</th>
-          <th>メールアドレス</th>
-      </tr>
-      <tr>
-        <td><%= "#"%></td>
-　　　　 <td><%= "#"%></td>
-        <td><%= "#"%></td>
-        <td><%= "#"%></td>
-        <td><%= "#"%></td>
-        <td><%= "#"%></td>
-        <td><%= "#"%></td>
-      </tr>
-  </table>
-<!-- ステータス変更 -->
-
+    <%= form_for(@customer, url: admins_customer_path, method: :patch) do |f| %>
+    <p>
+      <%= f.label "会員ID" %>
+      <%= @customer.id %>
+    </p>
+    <p>
+      <%= f.label "氏名" %>
+      <%= f.text_field :family_name %>
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label "フリガナ" %>
+      <%= f.text_field :family_name_kana %>
+      <%= f.text_field :last_name_kana %>
+    </p>
+    <p>
+      <%= f.label "郵便番号" %>
+      <%= f.text_field :postcode %>
+    </p>
+    <p>
+      <%= f.label "住所" %>
+      <%= f.text_field :address%>
+    </p>
+    <p>
+      <%= f.label "電話番号" %>
+      <%= f.text_field :phone_number%>
+    </p>
+    <p>
+      <%= f.label "メールアドレス" %>
+      <%= f.text_field :email%>
+    </p>
+  <!-- ステータス変更 -->
+    <p>
+       <%= f.radio_button :is_active, :true %>
+       <%= f.label :is_active,"有効", {value: :true, style: "display :inline-block;"} %>
+       <%= f.radio_button :is_active, :false %>
+       <%= f.label :is_active,"退会済み", {value: :false, style: "display :inline-block;"} %>
+    </p>
+    <%= f.submit "変更を保存する" %>
+    <% end %>
 <!-- 会員詳細リンク -->
-
+<%= link_to "showリンク", admins_customer_path(@customer.id) %>
+<%= link_to "注文index仮リンク", admins_orders_path(@customer.id) %>
+    </div>
   </div>
 </div>
-<%= link_to "showリンク", admins_customer_path(1) %>
-<%= link_to "注文index仮リンク", admins_orders_path %>

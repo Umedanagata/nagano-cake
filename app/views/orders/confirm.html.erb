@@ -1,7 +1,7 @@
 <header>
   <style media="screen">
     .amount-box {
-      padding-top: 55px;
+      margin-top: 55px;
     }
   </style>
 </header>
@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-xs-7 col-xs-offset-1">
       <h3>注文情報確認</h3>
-      <table class="table table-default">
+      <table class="table table-striped">
         <tr>
           <th>商品名</th>
           <th>単価（税込）</th>
@@ -19,9 +19,12 @@
         <% sum = 0 %>
         <% @cart_items.each do |cart_item| %>
         <tr>
-          <td><%= attachment_image_tag cart_item.item, :image, :fill, 110, 70,
+          <td><%= link_to item_path(cart_item.item_id) do %>
+            <%= attachment_image_tag cart_item.item, :image, :fill, 110, 70,
             fallback: "noimage.jpg" %>
-            <%= link_to cart_item.item.name, item_path(cart_item.item_id) %></td>
+            <%= cart_item.item.name %>
+            <% end %>
+          </td>
             <% price = (cart_item.item.price * 1.08).floor %>
           <td>¥<%= price %></td>
           <td><%= cart_item.quantity.to_i %></td>
@@ -41,7 +44,7 @@
       <%= link_to "購入を確定する", orders_path, method: :post, class: "btn btn-success" %>
     </div>
     <div class="col-xs-3">
-      <div class="amount-box">
+      <div class="amount-box", style="border: 3px dotted gray">
         <table class="table table-default">
           <tr>
             <th>送料</th>

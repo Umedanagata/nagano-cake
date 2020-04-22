@@ -13,18 +13,17 @@
     <% @orders.each do |order| %>
     <tr>
       <td>
-        <% link_to admins_order_path(customer.orders) do %>
-        <%= order.created_at %>
+        <%= link_to admins_order_path(@order.order_items.id) do %>
+        <%= order.created_at. strftime('%Y/%m/%d/%R') %>
         <% end %>
       </td>
-      <td><%= orders.customer.family_name<< orders.customer.last_name %></td>
-      <td><%= order.quantity %></td>
+      <td><%= order.customer.family_name<< order.customer.last_name %></td>
+      <td><%= order.order_items.name %></td>
       <td><%= order.orders_status %></td>
     </tr>
-    </table>
     <% end %>
-  <%= paginate @orders %>
+    </table>
+    <%= paginate @orders %>
   </div>
 </div>
 <!-- ページャ実装 -->
-<%= link_to "edit仮リンク", admins_orders_path(1) %>

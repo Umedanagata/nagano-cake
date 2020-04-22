@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
 
   
   def confirm
+    @customer = current_customer
   end
 
   def create
@@ -24,13 +25,15 @@ class CustomersController < ApplicationController
     end
   end
 
+  def destroy
+    @customers = current_customer
+    @customers.destroy
+    redirect_to root_path
+  end
+
+
 private
   def customer_params
     params.require(:customer).permit(:family_name, :last_name, :family_name_kana, :last_name_kana, :postcode, :address, :phone_number, :email)
-  end
-
-private
-  def customer
-    params.require(:castomer).permit(:family_name, :last_name, :family_name_kana, :last_name_kana, :postcode, :adress, :phone_namber, :email)
   end
 end

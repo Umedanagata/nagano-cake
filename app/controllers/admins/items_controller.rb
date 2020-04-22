@@ -16,8 +16,12 @@ class Admins::ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(item_params)
-		@item.save
+		if @item.save
 		redirect_to admins_item_path(@item)
+		flash[:item_new] = "商品を新規登録しました"
+	    else
+	    	render new_admins_item_path
+	    end
 	end
 
 	def edit
@@ -26,7 +30,11 @@ class Admins::ItemsController < ApplicationController
 
 	def update
 		@item = Item.find(params[:id])
-		@item.update(item_params)
+		if @item.update(item_params)
+		   flash[:item_update] = "商品内容を変更しました"
+		else
+			render back
+		end
 		redirect_to admins_item_path(@item)
 	end
 

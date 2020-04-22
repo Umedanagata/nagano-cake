@@ -5,6 +5,7 @@
     </div><br>
 
     <%= form_for @item ,url: admins_item_path , method: :patch  do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
 
 	<div class="col-xs-6">
 	  <div class="item_show_image">

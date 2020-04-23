@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
   create_table "genres", force: :cascade do |t|
     t.integer "item_id"
     t.string "name"
-    t.boolean "is_status"
+    t.boolean "is_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "name"
     t.integer "price"
     t.integer "quantity"
-    t.integer "production_status", default: 0
+    t.integer "production_status", null: false, default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,10 +98,10 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "address"
     t.string "postcode"
     t.string "ship_name"
-    t.integer "postage", default: 800
+    t.integer "postage"
     t.integer "amount"
-    t.integer "payment_method"
-    t.integer "orders_status", default: 0
+    t.integer "payment_method", null: false, default: 0
+    t.integer "orders_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

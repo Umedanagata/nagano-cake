@@ -19,8 +19,7 @@
         <% end %>
       </td>
       <td><%= order.customer.family_name<< order.customer.last_name %></td>
-      <!-- order.order_items.quantity.count -->
-      <td><%= order.order_items.name %></td>
+      <td><%= order.total_quantity %></td>
       <td><%= order.orders_status %></td>
     </tr>
     <% end %>

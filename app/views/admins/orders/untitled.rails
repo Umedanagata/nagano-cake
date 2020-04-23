@@ -45,11 +45,20 @@
               </td>
              </tr>
         </table>
-  <!--  上段ここまで -->
-　      <table>
-
-
-
+<!--  上段ここまで -->
+<!-- 注文一覧 -->
+    <div class="row">
+      <div class="col-xs-9">
+        <table class="table table-default">
+          <tr>
+          <tr>
+              <th>商品名</th>
+              <th>金額(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+<!-- ステータスのupdate -->
+              <th>製作ステータス</th>
+          </tr>
           <tr>
           <% @order.order_items.each do |item| %>
               <td><%= item.name %></td>
@@ -63,8 +72,7 @@
                 <%= f.submit '変更' %>
                 <% end %>
               </td>
-          </tr>
-          <% end %>
+            </tr>
           </tr>
         </table>
       </div>
@@ -77,4 +85,3 @@
       </div>
     </div>
   </div>
-

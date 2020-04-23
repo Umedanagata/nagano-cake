@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_customer!
 
-  # before_action :authenticate_user!
   def confirm
     @customer = current_customer
   end

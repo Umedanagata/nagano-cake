@@ -28,7 +28,7 @@
 				<tr>
 					<td><%= item.id %></td>
 					<td><%= link_to (item.name) ,admins_item_path(item) %></td>
-					<td><%= item.price %></td>
+					<td><%= converting_to_jpy(item.price) %></td>
 					<td><%= item.genre.name%></td>
 					<td><%= item.is_sale ?  '販売中' : '売り切れ' %></td>
 				</tr>

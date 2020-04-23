@@ -14,7 +14,7 @@
     <div class="col-xs-2 col-xs-offset-1">
       <%= render "search_form" %>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-9">
       <div class="welcome-message", style="margin-top :50px;">
         <p>ようこそ、NaganoCakeへ!<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
@@ -23,7 +23,7 @@
       </div>
       <div class="recommend-item">
         <h3>おすすめ商品</h3>
-        
+
         <div class="item-index">
           <% @items.each.with_index(1) do |item, i| %>
             <div class="item-box">
@@ -32,7 +32,7 @@
               <div class="item-image">
                 <%= i %>
                 <%= link_to item_path(item) do %>
-                <%= attachment_image_tag item, :image, :fill, 130, 80,
+                <%= attachment_image_tag item, :image, :fill, 200, 150,
                   fallback: "noimage.jpg" %>
                 <% end %>
               </div>

@@ -19,7 +19,7 @@
           <td></td>
           <td><%= order.amount %></td>
           <td><%= order.orders_status %></td>
-          <td><%= link_to "表示する", order_path, class: "btn btn-info" %></td>
+          <td><%= link_to "表示する", order_path(@orders), class: "btn btn-info" %></td>
         </tr>
         <% end %>
       </table>

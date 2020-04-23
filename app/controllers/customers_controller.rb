@@ -28,6 +28,7 @@ class CustomersController < ApplicationController
   def destroy
     @customers = current_customer
     @customers.destroy
+    @customers.is_active = false
     redirect_to root_path
   end
 

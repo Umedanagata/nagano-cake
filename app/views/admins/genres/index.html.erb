@@ -13,7 +13,7 @@
             <%= f.radio_button :is_status, :false %>
             <%= f.label :is_status,"無効", {value: :false,
               style: "display :inline-block;"} %>
-            <%= f.submit '追加' %>
+            <%= f.submit '追加' ,class:"btn btn-info"%>
           </p>
         <% end %>
 <!-- ジャンル一覧 -->
@@ -28,7 +28,7 @@
 	          <tr>
 		          <td><%= genre.name %></td>
 		          <td><%= genre.is_status?? '有効': '無効' %></td>
-		          <td><%= link_to "編集する", edit_admins_genre_path(genre) %></td>
+		          <td><%= link_to "編集する", edit_admins_genre_path(genre) ,class: "btn btn-info "%></td>
 	          </tr>
         <% end %>
         </table>

@@ -1,6 +1,11 @@
 <head>
   <style media="screen">
     .welcome-message {border: 3px solid gray;}
+    .item-box {
+      float: left;
+      margin-right: 10px;
+      margin-top: 30px;
+    }
   </style>
 </head>
 
@@ -18,7 +23,24 @@
       </div>
       <div class="recommend-item">
         <h3>おすすめ商品</h3>
-          <%= render "items_index" %>
+        <div class="item-index">
+          <% @items.each.with_index(1) do |item, i| %>
+            <div class="item-box">
+              <% if item.is_sale == false%>
+              <% else %>
+              <div class="item-image">
+                <%= i %>
+                <%= link_to item_path(item) do %>
+                <%= attachment_image_tag item, :image, :fill, 130, 80,
+                  fallback: "noimage.jpg" %>
+                <% end %>
+              </div>
+              <h4><%= item.name %></h4>
+              <p>¥<%= (item.price * 1.08).floor %>(税込)</p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

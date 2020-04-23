@@ -5,4 +5,7 @@ class Order < ApplicationRecord
 	def destination
 		[postcode, address, ship_name].join
 	end
+
+	validates :postcode, presence: true
+	validates :address, presence: true
 end

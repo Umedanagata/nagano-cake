@@ -38,15 +38,21 @@
       <h4>支払い方法</h4>
       <p>　　　<%= @order.payment_method_i18n %></p>
       <h4>お届け先</h4>
-      <p>　　　郵便番号：〒<%= @order.postcode %></p>
-      <p>　　　住所　　：<%= @order.address %></p>
-      <p>　　　宛先　　：<%= @order.ship_name %></p>
-      <%= form_for @order, url: orders_path do |f| %>
-        <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-        <%= f.hidden_field :postcode, :value => @order.postcode %>
-        <%= f.hidden_field :address, :value => @order.address %>
-        <%= f.hidden_field :ship_name, :value => @order.ship_name %>
-        <%= f.submit "購入を確定する", class: "btn btn-success" %>
+      <% if @order.postcode == "" || @order.postcode == "" %>
+        <p style="color: red;">！お届け先が入力されていません！</p>
+        <%= link_to '戻る', :back, class: "btn btn-default" %>
+      <% else %>
+        <p>　　　郵便番号：〒<%= @order.postcode %></p>
+        <p>　　　住所　　：<%= @order.address %></p>
+        <p>　　　宛先　　：<%= @order.ship_name %></p>
+        <%= form_for @order, url: orders_path do |f| %>
+          <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+          <%= f.hidden_field :postcode, :value => @order.postcode %>
+          <%= f.hidden_field :address, :value => @order.address %>
+          <%= f.hidden_field :ship_name, :value => @order.ship_name %>
+          <%= link_to '戻る', :back, class: "btn btn-default" %>
+          <%= f.submit "購入を確定する", class: "btn btn-success" %>
+        <% end %>
       <% end %>
     </div>
     <div class="col-xs-3">

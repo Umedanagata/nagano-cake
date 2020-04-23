@@ -22,26 +22,30 @@ class OrdersController < ApplicationController
       @order.postcode = @address.postcode
       @order.address = @address.address
       @order.ship_name = @address.ship_name
-    elsif params[:address_select] == "2"
-     @order = current_customer.orders.new(order_params)
     end
   end
 
+
   def create
     @order = current_customer.orders.new(order_params)
-    @order.save
     @cart_items = current_customer.cart_items.all
-    @cart_items.each do |cart_item|
-      @order_items = @order.order_items.new
-      @order_items.item_id = cart_item.item.id
-      @order_items.name = cart_item.item.name
-      @order_items.price = cart_item.item.price
-      @order_items.quantity = cart_item.quantity
-      @order_items.save
+    if  @order.save
+        @cart_items.each do |cart_item|
+          @order_items = @order.order_items.new
+          @order_items.item_id = cart_item.item.id
+          @order_items.name = cart_item.item.name
+          @order_items.price = cart_item.item.price
+          @order_items.quantity = cart_item.quantity
+          @order_items.save
+        end
+      current_customer.cart_items.destroy_all
+      redirect_to orders_complete_path
+    else
+      @address = current_customer.addresses.all
+      render :new
     end
-    current_customer.cart_items.destroy_all
-    redirect_to orders_complete_path
   end
+
 
   def complete
   end

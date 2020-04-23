@@ -19,14 +19,19 @@
             <p>　　　<%= f.collection_select :destination, @address, :id, :destination %><br></p>
         <%= radio_button_tag("address_select", 2) %>
           <%= f.label "新しいお届け先" %><br>
-            <p>　　　<%= f.label "郵便番号" %>
-                    <%= f.text_field :postcode %><br>
+          <% if @order.errors.any? %>
+            <% @order.errors.full_messages.each do |message| %>
+              <p style="color: red;"><%= message %></p>
+            <% end %>
+          <% end %>
+            <p><%= f.label "郵便番号" %>
+                <%= f.text_field :postcode %>
             </p>
-            <p>　　　<%= f.label "住所" %>
-                    <%= f.text_field :address, size: "50x30" %><br>
+            <p><%= f.label "住所" %>
+                    <%= f.text_field :address, size: "50x30" %>
             </p>
-            <p>　　　<%= f.label "宛名" %>
-                    <%= f.text_field :ship_name %><br>
+            <p><%= f.label "宛名" %>
+                    <%= f.text_field :ship_name %>
             </p>
         <%= f.submit "確認画面へ進む", class: "btn btn-default" %>
         <% end %>

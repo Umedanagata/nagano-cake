@@ -10,4 +10,9 @@ class Order < ApplicationRecord
 	    preparation: 3,
 	    sending: 4
 	}
+
+	def destination
+		[postcode, address, ship_name].join
+	end
+
 end

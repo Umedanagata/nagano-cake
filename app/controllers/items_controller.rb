@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_genres, only:[:top, :index, :show, :genre_items]
 
   def top
+    
     order_items = OrderItem.order(quantity: :DESC)
     @items = Item.find(OrderItem.group(:item_id).order('sum(quantity) desc').
     limit(4).pluck(:item_id))

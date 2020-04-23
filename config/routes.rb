@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   post 'orders/confirm' => 'orders#confirm', as: "orders_confirm"
   get 'orders/complete' => 'orders#complete', as: "orders_complete"
   resources :items, only: [:index, :show]
+  get 'genre_items/:id' => "items#genre_items", as: "genre_items"
   delete 'cart_items' => 'cart_items#destroy_item', as: "destroy_item"
   resources :cart_items, only:[:index, :create, :destroy, :update]
   resources :orders, only:[:index, :show, :new, :create]
-  resources :customers, only:[:show, :edit, :create, :update]
   get 'customers/confirm' => 'customers#confirm'
+  resources :customers, only:[:show, :edit, :create, :update, :destroy]
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
 
   #管理側

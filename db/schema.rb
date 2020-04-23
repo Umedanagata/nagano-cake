@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_025003) do
     t.string "phone_number"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_025003) do
     t.string "name"
     t.integer "price"
     t.integer "quantity"
-    t.integer "production_status"
+    t.integer "production_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_025003) do
     t.integer "postage"
     t.integer "amount"
     t.integer "payment_method"
-    t.integer "orders_status"
+    t.integer "orders_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -3,47 +3,55 @@
   <div class="row">
   	<div class="col-xs-9 col-xs-offset-3">
     <h3>マイページ</h3><br></div>
-
+    <div class="col-xs-6">
     <strong>登録情報</strong>
       <%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-info" %>
-      <%= link_to "パスワードを変更する", edit_customer_password_path(@customer), class: "btn btn-info" %>
+      <%= link_to "パスワードを変更する", edit_customer_registration_path(@customer), class: "btn btn-info" %>
 
-    <div class="field">氏名
-      <%= @customer.family_name %>
-      <%= @customer.last_name %>
-    </div>
+    <table class="table table-bordered">
+      <tr>
+        <th class="success">氏名</th>
+        <td>
+        <%= @customer.family_name %>
+        <%= @customer.last_name %>
+        </td>
+      </tr>
 
-    <div class="field">カナ
-      <%= @customer.family_name_kana %>
-      <%= @customer.last_name_kana %>
-    </div>
+      <tr>
+        <th class="success">カナ</th>
+        <td>
+        <%= @customer.family_name_kana %>
+        <%= @customer.last_name_kana %>
+        </td>
+        </tr>
 
-    <div class="field">郵便番号
-      <%= @customer.postcode %>
-    </div>
+      <tr>
+        <th class="success">郵便番号</th>
+        <td><%= @customer.postcode %></td>
+      </tr>
 
-    <div class="field">住所
-      <%= @customer.address %>
-    </div>
+      <tr>
+        <th class="success">住所</th>
+        <td><%= @customer.address %></td>
+      </tr>
 
-    <div class="field">電話番号
-      <%= @customer.phone_number %>
-    </div>
+      <tr>
+        <th class="success">電話番号</th>
+        <td><%= @customer.phone_number %></td>
+      </tr>
 
-    <div class="field">メールアドレス
-      <%= @customer.email %>
-    </div>
+      <tr>
+        <th class="success">メールアドレス</th>
+        <td><%= @customer.email %></td>
+      </tr>
+
+    </table>
 
     <strong>配送先</strong>
       <%= link_to "一覧を見る", addresses_path,  class: "btn btn-info" %><br>
 
     <strong>注文履歴</strong>
       <%= link_to "一覧を見る", orders_path,  class: "btn btn-info" %>
+    </div>
   </div>
 </div>
-
-<strong>配送先</strong>
-  <%= link_to "一覧を見る", addreses_path %>
-
-<strong>注文履歴</strong>
-  <%= link_to "一覧を見る", orders_path %>

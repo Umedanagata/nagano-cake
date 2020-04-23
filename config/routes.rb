@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   delete 'cart_items' => 'cart_items#destroy_item', as: "destroy_item"
   resources :cart_items, only:[:index, :create, :destroy, :update]
   resources :orders, only:[:index, :show, :new, :create]
-  resources :customers, only:[:show, :edit, :create, :update]
   get 'customers/confirm' => 'customers#confirm'
+  resources :customers, only:[:show, :edit, :create, :update, :destroy]
   resources :addresses, only:[:index, :create, :edit, :update, :destroy]
 
   #管理側

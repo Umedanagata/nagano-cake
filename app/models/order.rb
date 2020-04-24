@@ -3,11 +3,13 @@ class Order < ApplicationRecord
 	has_many :order_items
 	enum payment_method: {credit:1, bank:2}
     enum orders_status: {
-		cannot: 0,
-		waiting: 1,
-	    creating: 2,
-	    done: 3
+         wait: 0,
+	     deposit: 1,
+	     production: 2,
+	     preparation: 3,
+	     sending: 4
 	}
+
 
 	def destination
 		[postcode, address, ship_name].join

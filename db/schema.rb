@@ -51,13 +51,13 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "phone_number"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.boolean "is_active", default: true
+    t.boolean "is_active", default: true, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "name"
     t.integer "price"
     t.integer "quantity"
-    t.integer "production_status", null: false, default: 0
+    t.integer "production_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,10 +98,10 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "address"
     t.string "postcode"
     t.string "ship_name"
-    t.integer "postage"
+    t.integer "postage", default: 800
     t.integer "amount"
-    t.integer "payment_method", null: false, default: 0
-    t.integer "orders_status", null: false
+    t.integer "payment_method", null: false
+    t.integer "orders_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

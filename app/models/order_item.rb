@@ -3,10 +3,10 @@ class OrderItem < ApplicationRecord
 	belongs_to :order
 
     enum production_status: {
-		wait: 0,
-	    deposit: 1,
-	    production: 2,
-	    preparation: 3,
-	    sending: 4
+		cannot: 0,
+		waiting: 1,
+	    creating: 2,
+	    done: 3
+
 	}
 end

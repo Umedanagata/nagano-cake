@@ -26,7 +26,7 @@
                     </span>
                 <% end %>
               </td>
-          　</tr>
+          　  </tr>
           　<tr>
               <th>支払い方法</th>
               <td><%= @order.payment_method %></td>
@@ -35,7 +35,7 @@
             <tr>
               <th>注文ステータス変更</th>
               <td>
-                <%= form_with(model: @order, local: true, url: admins_orders_path, method: :patch) do |f| %>
+                <%= form_with(model: @order, local: true, url: admins_order_path(@order), method: :patch) do |f| %>
 
                   <%= f.select :orders_status, Order.orders_statuses_i18n.keys.map{|k| [I18n.t("enums.order.orders_status.#{k}"),k]} %>
                   <%= f.submit '変更' %>
@@ -68,7 +68,7 @@
 <!--  製作ステータス(order.item) -->
             <td>
               <%= form_with(model: orderitem, local: true, url: admins_path, method: :patch) do |f| %>
-              <%= f.select :production_status, OrderItem.production_statuses_i18n.keys.map{|k| [I18n.t("enums.order_item.production_status.#{k}"),k]} %>
+              <%= f.select :production_status, OrderItem.production_statuses_i18n.keys.map{|k| [I18n.t("enums.order_item.production_status.#{k}"),k]},default: params[:production_status] %>
               <%= f.submit '変更' %>
               <% end %>
             </td>

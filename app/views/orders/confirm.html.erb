@@ -2,6 +2,12 @@
   <style media="screen">
     .amount-box {
       margin-top: 55px;
+      border: 3px dashed gray;
+      border-radius: 8px;
+      padding: 20px 20px 0 20px;
+    }
+    .notice-message {
+      transition: 0.5s;
     }
   </style>
 </header>
@@ -39,7 +45,7 @@
       <p>　　　<%= @order.payment_method_i18n %></p>
       <h4>お届け先</h4>
       <% if @order.postcode == "" || @order.postcode == "" %>
-        <p style="color: red;">！お届け先が入力されていません！</p>
+        <p class="notice-message", style="color: red;">！お届け先が入力されていません！</p>
         <%= link_to '戻る', :back, class: "btn btn-default" %>
       <% else %>
         <p>　　　郵便番号：〒<%= @order.postcode %></p>
@@ -51,14 +57,14 @@
           <%= f.hidden_field :address, :value => @order.address %>
           <%= f.hidden_field :ship_name, :value => @order.ship_name %>
           <%= link_to '戻る', :back, class: "btn btn-default" %>
-          <%= f.submit "購入を確定する", class: "btn btn-success" %>
+          <%= f.submit "購入を確定する", class: "btn btn-primary" %>
         <% end %>
       <% end %>
     </div>
     <div class="col-xs-3">
-      <div class="amount-box", style="border: 3px dotted gray">
-        <table class="table table-default">
-          <tr>
+      <div class="amount-box">
+        <table class="table">
+          <tr class>
             <th>送料</th>
             <td>¥<%= @order.postage.to_i %></td>
           </tr>
@@ -66,7 +72,7 @@
             <th>商品合計</th>
             <td>¥<%= sum %></td>
           </tr>
-          <tr>
+          <tr class="info">
             <th>請求金額</th>
             <td>¥<%= sum + @order.postage.to_i %></td>
           </tr>

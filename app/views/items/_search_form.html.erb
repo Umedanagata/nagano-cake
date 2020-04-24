@@ -1,6 +1,6 @@
 <div class="genre-search", style="border: solid 1px lightgray;">
   <h4 style="text-align: center;">ジャンル検策</h4>
   <% @genres.each do |genre| %>
-  <p> <%= link_to genre.name, genre_items_path(genre) %></p>
+  <p style="text-align: center;"> <%= link_to genre.name, genre_items_path(genre) %></p>
   <% end %>
 </div>

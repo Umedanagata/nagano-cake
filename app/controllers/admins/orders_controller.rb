@@ -15,21 +15,17 @@ class Admins::OrdersController < ApplicationController
        @order.update(orders_params)
        @orderitems = @order.order_items.all
     if @order.orders_status == "deposit"
-       @orderitems.each do |orderitem|
-        orderitem.update(production_status: :waiting)
+       @orderitems.each do |order_item|
+        order_item.update(production_status: :waiting)
         redirect_back(fallback_location: root_path)
       end
     end
   end
 
-
   private
 
   def orders_params
     params.require(:order).permit(:orders_status)
-  end
-   def order_items_params
-    params.require(:order_item).permit(:production_status)
   end
 
 end

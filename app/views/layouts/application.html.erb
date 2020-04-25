@@ -20,7 +20,7 @@
              <li><%= link_to "マイページ",customer_path(current_customer) , class: "btn btn-default btn-lg" %></li>
              <li><%= link_to "商品一覧", items_path, class: "btn btn-default btn-lg" %></li>
              <li><%= link_to "カート", cart_items_path(@item), class: "btn btn-default btn-lg" %></li>
-             <li> <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} class: "btn btn-default btn-lg" %></li>
+             <li> <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "btn btn-default btn-lg" %></li>
           <% elsif  %>
             <% if admin_signed_in? %>
                <li><%= link_to "商品一覧" , admins_items_path ,  class: "btn btn-default btn-lg" %></li>

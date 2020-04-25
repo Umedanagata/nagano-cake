@@ -7,6 +7,7 @@ class Admins::OrdersController < ApplicationController
 
   def show
   	@order = Order.find(params[:id])
+
   end
 
   def update
@@ -17,8 +18,8 @@ class Admins::OrdersController < ApplicationController
     if @order.orders_status == "deposit"
        @orderitems.each do |order_item|
         order_item.update(production_status: :waiting)
-        redirect_back(fallback_location: root_path)
       end
+      redirect_to admins_order_path(@order.id)
     end
   end
 

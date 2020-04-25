@@ -1,4 +1,5 @@
 class Admins::OrdersController < ApplicationController
+  before_action :authenticate_admin!
    Time.zone = 'Tokyo'
 
   def index

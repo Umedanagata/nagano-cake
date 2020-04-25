@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
-   <div class="col-xs-12">
+    <div class="col-xs-12">
 
-    <h2>注文詳細画面</h2>
+    <h3 class="order-title-show">
+      <strong>注文詳細画面</strong>
+    </h3>
 <!-- 注文詳細 -->
         <table class="table table-default">
            <tr>
@@ -14,19 +16,12 @@
           　<tr>
               <th>配送先</th>
               <td>
-                <% if @order.address == nil %>
-                    <span>
-                    〒<%= @order.customer.postcode %><%= @order.customer.address %><br>
-                    <%= @order.customer.family_name %><%= @order.customer.last_name %>
-                    </span>
-                <% else %>
-                    <span>
+                    <p>
                     〒<%= @order.postcode %><%= @order.address %><br>
                     <%= @order.ship_name %>
-                    </span>
-                <% end %>
+                    </p>
               </td>
-          　  </tr>
+          　</tr>
           　<tr>
               <th>支払い方法</th>
               <td><%= @order.payment_method_i18n %></td>
@@ -79,7 +74,7 @@
     </div>
 
 <!-- 商品合計金額 -->
-　　　 <div class="col-xs-3">
+　　　 <div class="col-xs-3 order-amount">
           <p>商品合計
             <% @order.order_items.each do |order_item| %>
             <% @amount = ((order_item.quantity * order_item.price)* 1.1).floor %>

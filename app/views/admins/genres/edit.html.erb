@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
 
-    <h2>ジャンル編集画面</h2>
-
+    <h3 class="genre-edit-title">
+      <strong>ジャンル編集画面</strong>
+    </h3>
 <!-- ジャンル名前編集・ステータス変更 -->
     <%= form_for(@genre, url: admins_genre_path, method: :patch) do |f| %>
       <p>

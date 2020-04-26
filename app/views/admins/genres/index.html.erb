@@ -7,20 +7,24 @@
   <!-- ジャンル新規作成 -->
       <div class= "genre-form">
         <%= form_for(@newgenre, url: admins_genres_path, method: :post, local:true) do |f| %>
+
+        <%= render 'layouts/error_messages', model: f.object %>
+
             <sapn>ジャンル</span>
             <%= f.text_field :name ,:placeholder => "例:ケーキ"%>
   <!-- 有効・無効 -->
             <%= f.radio_button :is_status, :true %>
             <%= f.label :is_status,"有効", {value: :true, style: "display :inline-block;"} %>
+
             <%= f.radio_button :is_status, :false %>
-            <%= f.label :is_status,"無効", {value: :false,
-              style: "display :inline-block;"} %>
+            <%= f.label :is_status,"無効", {value: :false,style: "display :inline-block;"} %>
+
             <%= f.submit '追加' ,class:"btn btn-info "%>
         </div>
         <% end %>
   <!-- ジャンル一覧 -->
         <table class="table table-default genre-table">
-  	       <tr class="active">
+  	       <tr>
   		      <th>ジャンル</th>
   		      <th>状態</th>
   		      <th></th>

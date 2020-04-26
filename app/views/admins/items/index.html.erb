@@ -1,43 +1,37 @@
-
-	<div class="col-xs-2">
-	</div>
-<div class="col-xs-8">
-	<div class="item_index_logo">
-		<h3><strong>商品一覧画面</strong></h2>
-	</div><br><br>
-
-	<div class="item_index_btn">
-		<%= link_to (new_admins_item_path) do %>
-		<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-		<% end %>
-	</div>
-
-	<div class="item_index_list">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>商品ID</th>
-					<th>商品名</th>
-					<th>税抜価格</th>
-					<th>ジャンル</th>
-					<th>ステータス</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @items.each do |item| %>
-				<tr>
-					<td><%= item.id %></td>
-					<td><%= link_to (item.name) ,admins_item_path(item) %></td>
-					<td><%= converting_to_jpy(item.price) %></td>
-					<td><%= item.genre.name%></td>
-					<td><%= item.is_sale ?  '販売中' : '売り切れ' %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<div class="text-center">
-			<%= paginate @items  %>
+<div class="container">
+	 <div class="row">
+	    <div class="col-xs-3">
+			<h3><strong>商品一覧画面</strong></h3>
+		</div><br><br>
+		<div class="text-right">
+			<%= link_to "商品新規登録" , new_admins_item_path,  class:"btn btn-info btn-lg"%>
+		</div>
+		<div class="item_index_list">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>商品ID</th>
+						<th>商品名</th>
+						<th>税抜価格</th>
+						<th>ジャンル</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @items.each do |item| %>
+					<tr>
+						<td><%= item.id %></td>
+						<td><%= link_to (item.name) ,admins_item_path(item) %></td>
+						<td><%= converting_to_jpy(item.price) %></td>
+						<td><%= item.genre.name%></td>
+						<td><%= item.is_sale ?  '販売中' : '売り切れ' %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<div class="text-center">
+				<%= paginate @items  %>
+			</div>
 		</div>
 	</div>
-</div>	<div class="col-xs-2">
-	</div>
+</div>

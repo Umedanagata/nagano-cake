@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   end
   def confirm
     @order = current_customer.orders.new(order_params)
-    @cart_items = current_customer.cart_items.all
+    amount #合計金額算出メソッド[amount]の呼び出し
     if params[:address_select] == "0"
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
@@ -22,12 +22,19 @@ class OrdersController < ApplicationController
       @order.postcode = @address.postcode
       @order.address = @address.address
       @order.ship_name = @address.ship_name
+    elsif params[:address_select] == "2"
+      @address = current_customer.addresses.new
+      @address.postcode = @order.postcode
+      @address.address = @order.address
+      @address.ship_name = @order.ship_name
+      @address.save
     end
   end
 
 
   def create
     @order = current_customer.orders.new(order_params)
+    amount
     @cart_items = current_customer.cart_items.all
     if  @order.save
         @cart_items.each do |cart_item|
@@ -60,4 +67,15 @@ class OrdersController < ApplicationController
   def order_items_params
     params.require(:order_items).permit(:order_id)
   end
-end
+  def amount
+    order_amount = 0
+    @cart_items = current_customer.cart_items.all
+    @cart_items.each do |cart_item|
+      price = (cart_item.item.price * 1.1).floor
+      amount = cart_item.quantity * price
+      order_amount += amount
+    end
+    @order.amount = order_amount + @order.postage
+  end
+
+  end

@@ -35,7 +35,7 @@
           <td>¥<%= price %></td>
           <td><%= cart_item.quantity.to_i %></td>
           <% amount = (cart_item.quantity).to_i * price %>
-          <td>¥<%= amount %></td>
+          <td>¥<%= amount.to_s(:delimited) %></td>
           <% sum += amount %>
         </tr>
         <% end %>
@@ -74,7 +74,7 @@
           </tr>
           <tr class="info">
             <th>請求金額</th>
-            <td>¥<%= sum + @order.postage.to_i %></td>
+            <td>¥<%= @order.amount.to_s(:delimited) %></td>
           </tr>
         </table>
       </div>

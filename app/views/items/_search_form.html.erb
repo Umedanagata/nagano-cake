@@ -1,6 +1,20 @@
+<header>
+  <style media="screen">
+    #genres {
+      text-align: center;
+        text-decoration: none;
+    }
+    #genres:hover {
+      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+    }
+  </style>
+</header>
 <div class="genre-search", style="border: solid 1px lightgray;">
   <h4 style="text-align: center;">ジャンル検策</h4>
   <% @genres.each do |genre| %>
-  <p style="text-align: center;"> <%= link_to genre.name, genre_items_path(genre) %></p>
+  <% if genre.is_status == true %>
+  <p id="genres"> <%= link_to genre.name, genre_items_path(genre) %></p>
+  <% end %>
   <% end %>
 </div>

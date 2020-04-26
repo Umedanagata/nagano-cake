@@ -17,6 +17,11 @@
  @import "bootstrap";
 
 
+ #wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
  body {
     font-family: "Comic Sans MS", "arial unicode ms";
  }
@@ -50,7 +55,7 @@
 $cBlack: gray;
 
 .footer {
-position: absolute;
+margin-top: auto;
 bottom: 0;
 width: 100%;
 height: 50px;

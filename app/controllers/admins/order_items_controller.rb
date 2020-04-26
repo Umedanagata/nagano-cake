@@ -12,14 +12,17 @@ class Admins::OrderItemsController < ApplicationController
        # ここのproductionは[製作中：production] ↓
        @order.update(orders_status: :production)
        redirect_back(fallback_location: root_path)
-    elsif
-         # doneの数をカウントする
-         items = @order_items.where(production_status: "done")
-         # doneの数 = 1回の注文のitem数(order.item.name)なら
-      if items == @order_items.name.count
-        # orders_statusを”preparation”に変更
-         @order.order_items.update(orders_status: :preparation)
-         redirect_back(fallback_location: root_path)
+       # doneの数をカウントする
+    elsif a = 0
+       @orderitems.each do |order_item|
+        if order_item.production_status == "done"
+          a += 1
+        end
+      end
+      # doneの数 = 1回の注文のitem数(order.item.name)なら
+      if a == @orderitems.count
+        @order.update(orders_status: :preparation)
+        redirect_back(fallback_location: root_path)
       end
     else
        @order.update(order_items_params)

@@ -8,6 +8,7 @@ class Admins::GenresController < ApplicationController
   end
 
   def create
+    @genres = Genre.all
     @newgenre = Genre.new(genre_params)
     if @newgenre.save
        redirect_to admins_genres_path

@@ -1,5 +1,7 @@
 <div class="container">
   <div class="row">
+    <div class="col-xs-1">
+    </div>
     <div class="col-xs-12">
 
     <h3 class="order-title-show">
@@ -10,7 +12,7 @@
            <tr>
               <th>購入者</th>
               <td>
-               <%= link_to (@order.customer.family_name<<@order.customer.last_name), admins_customer_path(@order.customer.id) %>
+               <%= link_to (@order.customer.family_name << @order.customer.last_name), admins_customer_path(@order.customer.id) %>
               </td>
           　</tr>
           　<tr>
@@ -45,7 +47,7 @@
 <!--  上段ここまで -->
 
   <div class="row">
-    <div class="col-xs-9">
+    <div class="col-xs-7">
 
       <table class="table table-bordered">
           <tr class="active">
@@ -77,22 +79,22 @@
 
 <!-- 商品合計金額 -->
 　　　 <div class="col-xs-3">
-          <table class= "order-amount">
-          <tr>
-            <th>商品合計 </th>
-            <td>
-              <%= @order.amount - @order.postage %>円
-            </td>
-          <tr>
-            <th>送料 </th>
-            <td><%= @order.postage %>円</td>
-          </tr>
-          <tr>
-             <th>請求金額合計 </th>
-             <td><%= @order.amount %>円</td>
-         </tr>
+          <table class= "order-amount-table">
+            <tr>
+              <th>商品合計</th>
+              <td>
+                <%= @order.amount - @order.postage %>円
+              </td>
+            </tr>
+            <tr>
+              <th>送料</th>
+              <td><%= @order.postage %>円</td>
+            </tr>
+            <tr>
+               <th>請求金額合計</th>
+               <td><%= @order.amount %>円</td>
+           </tr>
          </table>
-          <!-- ((@order.amount += @order.postage)*1.1).floor -->
       </div>
     </div>
     <!-- contener -->

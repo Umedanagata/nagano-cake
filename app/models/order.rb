@@ -13,7 +13,6 @@ class Order < ApplicationRecord
 	def destination
 		[postcode, address, ship_name].join
 	end
-
 	def total_quantity
 		a = 0
         self.order_items.each do |o_i|

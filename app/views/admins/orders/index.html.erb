@@ -9,7 +9,7 @@
     </h3>
 <!-- 注文一覧表示 -->
   <table class="table table-default">
-    <tr>
+    <tr class="active">
       <th>購入日時</th>
       <th>購入者</th>
       <th>注文個数</th>
@@ -30,7 +30,9 @@
     <% end %>
   </table>
 <!-- ページャ実装 -->
+  <div class ="text-center">
   <%= paginate @orders %>
+  </div>
   </div>
 </div>
 <!--  余白 -->

@@ -9,15 +9,12 @@
 
 <!-- 会員一覧表示 -->
     <table class="table table-default">
-      <thead>
-      <tr>
+      <tr class="active">
           <th>会員ID</th>
           <th>氏名</th>
           <th>メールアドレス</th>
           <th>ステータス</th>
       </tr>
-      </thead>
-      <tbody>
       <% @customers.each do |customer| %>
       <tr>
           <td><%= customer.id %></td>
@@ -33,10 +30,11 @@
           </td>
       </tr>
       <% end %>
-     </tbody>
     </table>
 <!-- ページネーション実装 -->
+  <div class ="text-center">
     <%= paginate @customers %>
+  </div>
     </div>
   </div>
 </div>

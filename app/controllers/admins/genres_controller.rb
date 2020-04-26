@@ -9,9 +9,11 @@ class Admins::GenresController < ApplicationController
 
   def create
     @newgenre = Genre.new(genre_params)
-    @newgenre.save
-    redirect_to admins_genres_path
- # nameバリデーション入れる
+    if @newgenre.save
+       redirect_to admins_genres_path
+    else
+      render "index"
+    end
   end
 
   def edit
@@ -20,8 +22,11 @@ class Admins::GenresController < ApplicationController
 
   def update
     @genre = Genre.find(params[:id])
-    @genre.update(genre_params)
-    redirect_to admins_genres_path
+    if @genre.update(genre_params)
+       redirect_to admins_genres_path
+    else
+      render "edit"
+    end
   end
 
 #ストロングパラメータ

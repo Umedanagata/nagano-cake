@@ -21,4 +21,8 @@ class Order < ApplicationRecord
         return a
 	end
 
+
+	validates :postcode, presence: true
+	validates :address, presence: true
+
 end

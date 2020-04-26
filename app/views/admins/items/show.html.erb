@@ -10,8 +10,8 @@
 	</div>
 
 	<div class="col-xs-6">
-		<%= flash[:item_new] %>
-		<%= flash[:item_update] %>
+		<p class="text-success"><strong><%= flash[:item_new] %></strong></p>
+		<p class="text-success"><strong><%= flash[:item_update] %></strong></p>
 	  <table class="table">
 			<tr>
 				<th>商品名</th>
@@ -27,7 +27,7 @@
 			</tr>
 			<tr>
 				<th>税込価格(税抜価格)</th>
-				<td><%= converting_to_jpy(@item.price*1.1.floor) %> ( <%= converting_to_jpy(@item.price)%> ) 円</td>
+				<td><%= converting_to_jpy((@item.price*1.1).floor) %> ( <%= converting_to_jpy(@item.price)%> ) 円</td>
 			</tr>
 			<tr>
 				<th>販売ステータス</th>

@@ -14,6 +14,14 @@ class Order < ApplicationRecord
 		[postcode, address, ship_name].join
 	end
 
+	def total_quantity
+		a = 0
+        self.order_items.each do |o_i|
+        	a += o_i.quantity
+        end
+        return a
+	end
+
 
 	validates :postcode, presence: true
 	validates :address, presence: true

@@ -5,3 +5,10 @@
 h1 {
   display: inline;
 }
+.btn {
+  transition: 0.5s;
+}
+.btn:hover {
+  background-color: black;
+
+}

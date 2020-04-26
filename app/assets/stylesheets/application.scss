@@ -16,11 +16,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
  #wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
+
+ body {
+    font-family: "Comic Sans MS", "arial unicode ms";
+ }
 
  .form{
    text-align: right;
@@ -48,6 +52,8 @@
 	margin: 0 20px;
 }
 
+$cBlack: gray;
+
 .footer {
 margin-top: auto;
 bottom: 0;
@@ -55,4 +61,19 @@ width: 100%;
 height: 50px;
 background-image: url(logo-01.jpg);
 background-position: center;
+}
+
+.btn {
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.7);
+    margin: 10px 0 5px 15px;
+
+    &:hover {
+      background-color: white;
+      color: $cBlack;
+      border-color: $cBlack;
+      transform: none;
+      box-shadow: none;
+
+    }
 }

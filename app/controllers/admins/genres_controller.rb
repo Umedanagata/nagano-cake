@@ -1,4 +1,5 @@
 class Admins::GenresController < ApplicationController
+  before_action :authenticate_admin!
 
 #ジャンル一覧と新規作成
   def index

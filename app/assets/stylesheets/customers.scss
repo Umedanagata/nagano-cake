@@ -1,3 +1,22 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pagination {
+  justify-content: center;
+}
+
+.index-title {
+  margin-bottom: 30px;
+}
+.show-title {
+  margin-bottom: 20px;
+}
+
+
+.checkbox {
+	margin-left: 90px;
+}
+.submit {
+	margin-left: 35px;
+}

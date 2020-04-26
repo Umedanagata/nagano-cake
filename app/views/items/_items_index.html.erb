@@ -11,13 +11,22 @@
   <% @items.each do |item| %>
     <div class="item-box">
       <div class="item-image">
+      <% if item.is_sale == false%>
+        <%= attachment_image_tag item, :image, :fill, 200, 140,
+          fallback: "noimage.jpg", size: "200x140" %>
+        <% else %>
         <%= link_to item_path(item) do %>
         <%= attachment_image_tag item, :image, :fill, 200, 140,
           fallback: "noimage.jpg", size: "200x140" %>
         <% end %>
+      <% end %>
       </div>
       <h4><%= item.name %></h4>
-      <p>¥<%= (item.price * 1.08).floor %>(税込)</p>
+      <% if item.is_sale == false %>
+        <p style="color: red;">sorry, not for sale</p>
+      <% else %>
+        <p>¥<%= (item.price * 1.08).floor %>(税込)</p>
+      <% end %>
     </div>
   <% end %>
 

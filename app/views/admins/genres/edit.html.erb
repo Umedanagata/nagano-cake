@@ -3,16 +3,12 @@
 
   <!-- バリデーション（エラー表示） -->
 
-  <!-- バリデーションここまで -->
-
     <h3 class="genre-edit-title">
       <strong>ジャンル編集画面</strong>
     </h3>
   <!-- ジャンル名前編集・ステータス変更 -->
     <%= form_for(@genre, url: admins_genre_path, method: :patch) do |f| %>
-
     <%= render 'layouts/error_messages', model: f.object %>
-    
       <p>
         <span>ジャンル</span>
         <%= f.text_field :name %>

@@ -3,4 +3,5 @@ class Address < ApplicationRecord
   def destination
 		[postcode, address, ship_name].join
 	end
-end
+
+  end

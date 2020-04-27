@@ -1,3 +1,22 @@
+<header>
+  <style media="screen">
+    .field {
+      margin-top: 30px;
+    }
+    .actions {
+      margin-top: 50px;
+    }
+    #customer_email {
+      margin-left: 100px;
+    }
+    #customer_password {
+      margin-left: 130px;
+    }
+    .action-box {
+      margin: auto 130px;
+    }
+  </style>
+</header>
 <div class="container">
   <div class="row">
     <h2>会員の方はこちらからログイン</h2><br>
@@ -11,29 +30,28 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
-        <div class="field"><br>
+        <div class="fields"><br>
           <%= f.label "パスワード" %>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
-          <div class="field"><br>
+          <div class="fields"><br>
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
               <%= link_to "＝＞パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
             <% end %>
           </div>
+
+        <div class="action-box">
+          <div class="actions"><br>
+            <%= f.submit "ログイン", class: "btn btn-default" %>
+          </div>
         <% end %>
-
-        <div class="actions"><br>
-          <%= f.submit "ログイン", class: "btn btn-primary" %>
+          <h3>登録がお済みでない方</h3>
+          <%= render "devise/shared/links" %>
+          <% end %>
         </div>
-      <% end %>
-
-      <h3>登録がお済みでない方</h3>
-      <%= render "devise/shared/links" %>
 
     </div>
-
   </div>
-
 </div>

@@ -5,6 +5,17 @@
 .order-title-index {
   margin: 30px 0px 30px 0px;
 }
+
 .order-title-show {
-  margin: 30px 0px 20px 0px;
+  margin: 30px 0px 30px 0px;
 }
+
+.order-amount-table {
+    width: 100;
+	margin: 50px  0px 0px 20px;
+	border-collapse: separate;
+	border-spacing: 8px 0px;
+}
+.order-amount-table td {
+      text-align: right;
+ }

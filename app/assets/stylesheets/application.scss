@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  }
 
  body {
     font-family: "Comic Sans MS", "arial unicode ms";
@@ -76,4 +77,8 @@ background-position: center;
       box-shadow: none;
 
     }
+}
+
+.search_box{
+  margin-right: 60px;
 }

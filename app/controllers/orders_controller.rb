@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     @address = current_customer.addresses.all
   end
   def show
-    @orders = Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
   def confirm
     @order = current_customer.orders.new(order_params)

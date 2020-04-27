@@ -34,13 +34,13 @@
             <th>宛名</th>
             <th></th>
           </tr>
-          <% @addresses.each do |f| %>
+          <% @addresses.each do |addresses| %>
           <tr>
-          	<td><%= f.postcode %></td>
-          	<td><%= f.address %></td>
-          	<td><%= f.ship_name %></td>
-          	<td><%= link_to "編集する", edit_address_path(f), class: "btn btn-primary" %>
-          		<%= link_to "削除する", address_path(f), method: :delete, class: "btn btn-danger" %>
+          	<td><%= addresses.postcode %></td>
+          	<td><%= addresses.address %></td>
+          	<td><%= addresses.ship_name %></td>
+          	<td><%= link_to "編集する", edit_address_path(addresses), class: "btn btn-primary" %>
+          		<%= link_to "削除する", address_path(addresses), method: :delete, class: "btn btn-danger" %>
           	</td>
           </tr>
           <% end %></div>

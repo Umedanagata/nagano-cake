@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-8">
+      <h3 class="customer-title-index">
+        <strong>検索結果</strong>
+      </h3>
+       <% if @model == 'item' %>
+        <% if @records.empty? %>
+          <h2>検索結果は0です</h2>
+        <% else %>
+    		  <%= render '/admins/items/table', items: @records %>
+        <% end %>
+    	 <% else %>
+       　 <% if @records.empty? %>
+           <h2>検索結果は0です</h2>
+         <% else %>
+    		  <%= render '/admins/customers/form', customers: @records %>
+         <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-xs-2">
+</div>

@@ -3,7 +3,7 @@ class Admins::OrdersController < ApplicationController
    Time.zone = 'Tokyo'
 
   def index
-  	@orders = Order.page(params[:page]).per(3)
+  	@orders = Order.page(params[:page]).per(3).order('created_at DESC')
   end
 
   def show
@@ -12,16 +12,15 @@ class Admins::OrdersController < ApplicationController
   end
 
   def update
-      # 注文id＝＝注文商品の持つ商品id
        @order = Order.find(params[:id])
        @order.update(orders_params)
        @orderitems = @order.order_items.all
-    if @order.orders_status == "deposit"
-       @orderitems.each do |order_item|
-        order_item.update(production_status: :waiting)
+      if @order.orders_status == "deposit"
+         @orderitems.each do |order_item|
+         order_item.update(production_status: :waiting)
       end
       redirect_to admins_order_path(@order.id)
-    end
+      end
   end
 
   private

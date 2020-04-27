@@ -1,20 +1,23 @@
 <div class="container">
   <div class="row">
 
+  <!-- バリデーション（エラー表示） -->
+
     <h3 class="genre-edit-title">
       <strong>ジャンル編集画面</strong>
     </h3>
-<!-- ジャンル名前編集・ステータス変更 -->
+  <!-- ジャンル名前編集・ステータス変更 -->
     <%= form_for(@genre, url: admins_genre_path, method: :patch) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
       <p>
         <span>ジャンル</span>
         <%= f.text_field :name %>
-<!-- status -->
+  <!-- status -->
         <%= f.radio_button :is_status, :true %>
         <%= f.label :is_status,"有効", {value: :true, style: "display :inline-block;"} %>
         <%= f.radio_button :is_status, :false %>
         <%= f.label :is_status,"無効", {value: :false, style: "display :inline-block;"} %>
-<!-- 有効・無効 -->
+  <!-- 有効・無効 -->
         <%= f.submit '変更を保存する',class: "btn btn-info " %>
       </p>
     <% end %>

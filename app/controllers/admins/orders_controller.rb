@@ -1,6 +1,5 @@
 class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
-   Time.zone = 'Tokyo'
 
   def index
   	@orders = Order.page(params[:page]).per(3).order('created_at DESC')

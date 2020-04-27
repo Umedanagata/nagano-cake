@@ -6,11 +6,8 @@ class AddressesController < ApplicationController
 
   def create
     @address = current_customer.addresses.new(address_params)
-    if @address.save
-      redirect_to addresses_path
-    else
-      render "index"
-    end
+    @address.save
+    redirect_to addresses_path
   end
 
   def edit

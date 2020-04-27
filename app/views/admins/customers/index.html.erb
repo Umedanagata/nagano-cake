@@ -6,35 +6,7 @@
       <h3 class="customer-title-index">
         <strong>会員一覧画面</strong>
       </h3>
-
-<!-- 会員一覧表示 -->
-    <table class="table table-default">
-      <tr class>
-          <th>会員ID</th>
-          <th>氏名</th>
-          <th>メールアドレス</th>
-          <th>ステータス</th>
-      </tr>
-      <% @customers.each do |customer| %>
-      <tr>
-          <td><%= customer.id %></td>
-<!-- 編集リンク -->
-          <td>
-          <%= link_to admins_customer_path(customer.id) do %>
-          <%= customer.family_name<< customer.last_name %>
-          <% end %>
-          </td>
-          <td><%= customer.email %></td>
-          <td>
-            <%= customer.is_active?? '有効': '退会済み' %>
-          </td>
-      </tr>
-      <% end %>
-    </table>
-<!-- ページネーション実装 -->
-  <div class ="text-center">
-    <%= paginate @customers %>
-  </div>
+        <%= render "form" , customers: @customers %>
     </div>
   </div>
 </div>

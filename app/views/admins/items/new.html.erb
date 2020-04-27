@@ -9,7 +9,7 @@
 
 	<div class="col-xs-6">
 	  <div class="item_show_image">
-          <%= attachment_image_tag @item , :image ,fallback: 'cake.jpg' %>
+          <%= attachment_image_tag @item , :image ,:fill ,500 ,300 ,fallback: 'cake.jpg'%>
 	  </div><br>
 	  <div class="image_wrapper">
 	  	<div class="item_image_btn">
@@ -44,11 +44,11 @@
     </div>
 
     <div class="col-xs-4" >
-    	<div><%= f.text_field :name , class:"item_select" , placeholder: "例:ショートケーキ"%></div><br>
+    	<div><%= f.text_field :name , class:"item_select " , placeholder: "例:ショートケーキ"%></div><br>
     	<div><%= f.text_area :text , class:"item_select , text_area" , placeholder: "例:イチゴたっぷりの...." %></div><br><br>
-		<div><%= f.collection_select :genre_id , @genres , :id, :name , class:"item_select" %></div><br><br>
+		<div><%= f.collection_select :genre_id , @genres , :id, :name , class:"btn btn-default" %></div><br><br>
 		<div><%= f.text_field :price , class:"item_select" , placeholder: "数字のみ"%></div><br><br>
-		<div><%= f.select :is_sale ,[['販売中',true],['売り切れ',false]] , class:"item_select" %></div><br><br><br>
+		<div><%= f.select :is_sale ,[['販売中',true],['売り切れ',false]] , class:"btn btn-default" %></div><br><br><br>
 		<div class="item_btn">
 	  	  <%= f.submit "商品新規登録" ,class: "btn btn-info , item_select " %>
 	    </div>

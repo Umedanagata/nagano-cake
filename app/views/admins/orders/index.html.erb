@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-2">
+    <div class="col-xs-1">
     </div>
-    <div  class="col-xs-8">
+    <div  class="col-xs-9">
 
     <h3 class="order-title-index">
       <strong>注文一覧画面</strong>
@@ -30,9 +30,11 @@
     <% end %>
   </table>
 <!-- ページャ実装 -->
+  <div class ="text-center">
   <%= paginate @orders %>
+  </div>
   </div>
 </div>
 <!--  余白 -->
-<div class="col-xs-2">
+<div class="col-xs-1">
 </div>

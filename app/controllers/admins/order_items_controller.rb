@@ -12,6 +12,7 @@ class Admins::OrderItemsController < ApplicationController
        # ここのproductionは[製作中：production] ↓
        @order.update(orders_status: :production)
        redirect_back(fallback_location: root_path)
+
        # doneの数をカウントする
     elsif a = 0
        @orderitems.each do |order_item|
@@ -19,6 +20,7 @@ class Admins::OrderItemsController < ApplicationController
           a += 1
         end
       end
+
       # doneの数 = 1回の注文のitem数(order.item.name)なら
       if a == @orderitems.count
         @order.update(orders_status: :preparation)

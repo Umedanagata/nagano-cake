@@ -4,13 +4,15 @@
       text-align: center;
         text-decoration: none;
     }
-    #genres:hover {
-      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
+    .genre-search {
+      position: fixed;
+      top: 100px;
+      left: 50px;
+      width: 200px;
     }
   </style>
 </header>
-<div class="genre-search", style="border: solid 1px lightgray;">
+<div class="genre-search", style="border: dashed 1px black;">
   <h4 style="text-align: center;">ジャンル検策</h4>
   <% @genres.each do |genre| %>
   <% if genre.is_status == true %>

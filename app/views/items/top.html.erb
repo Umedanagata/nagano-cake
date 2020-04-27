@@ -6,7 +6,7 @@
     }
     .item-box {
       float: left;
-      margin-right: 10px;
+      margin-right: 150px;
       margin-top: 30px;
     }
   </style>
@@ -31,6 +31,7 @@
           <% @items.each.with_index(1) do |item, i| %>
             <div class="item-box">
               <% if item.is_sale == false%>
+                <%# 何も表示しない %>
               <% else %>
               <p style="border-bottom: 3px dotted gray;"><%= i %></p>
               <div class="item-image">

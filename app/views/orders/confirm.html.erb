@@ -22,7 +22,8 @@
           <th>数量</th>
           <th>小計</th>
         </tr>
-        <% sum = 0 %>
+
+        <% total_fee = 0 %>
         <% @cart_items.each do |cart_item| %>
         <tr>
           <td><%= link_to item_path(cart_item.item_id) do %>
@@ -31,12 +32,11 @@
             <%= cart_item.item.name %>
             <% end %>
           </td>
-            <% price = (cart_item.item.price * 1.08).floor %>
-          <td>¥<%= price %></td>
+          <td>¥<%= cart_item_price(cart_item).to_s(:delimited) %></td>
           <td><%= cart_item.quantity.to_i %></td>
-          <% amount = (cart_item.quantity).to_i * price %>
+          <% amount = (cart_item.quantity).to_i * cart_item_price(cart_item) %>
           <td>¥<%= amount.to_s(:delimited) %></td>
-          <% sum += amount %>
+          <% total_fee += amount %>
         </tr>
         <% end %>
         <tr>
@@ -70,7 +70,7 @@
           </tr>
           <tr>
             <th>商品合計</th>
-            <td>¥<%= sum %></td>
+            <td>¥<%= total_fee.to_s(:delimited) %></td>
           </tr>
           <tr class="info">
             <th>請求金額</th>

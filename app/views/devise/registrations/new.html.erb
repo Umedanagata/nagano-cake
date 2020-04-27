@@ -1,3 +1,41 @@
+<header>
+  <style media="screen">
+
+    .family_name {
+      margin-left: 160px;
+    }
+    .family_name_kana {
+      margin-left: 120px;
+    }
+    #customer_email {
+      margin-left: 120px;
+      width: 350px;
+    }
+    #customer_postcode {
+      margin-left: 50px;
+      width: 350px;
+    }
+    #customer_address {
+      margin-left: 190px;
+      width: 350px;
+    }
+    #customer_password {
+      margin-left: 150px;
+      width: 350px;
+    }
+    #customer_phone_number {
+      margin-left: 50px;
+      width: 350px;
+    }
+    #customer_password_confirmation {
+      width: 350px;
+      margin-left: 80px;
+    }
+    .action-box {
+      margin: auto 200px;
+    }
+  </style>
+</header>
 <div class="container">
   <div class="row">
       <h2>新規会員登録</h2><br>
@@ -7,14 +45,14 @@
       <div class="col-xs-9 col-xs-offset-3">
         <div class="field"><br>
           <%= f.label "名前" %>
-          <%= f.label "(姓)" %>
+          <%= f.label "(姓)", class:"family_name" %>
           <%= f.text_field :family_name, placeholder: "山田" %>
           <%= f.label "(名)" %>
           <%= f.text_field :last_name, placeholder: "花子" %><br>
         </div>
         <div class="field"><br>
           <%= f.label "フリガナ" %>
-          <%= f.label "(セイ)" %>
+          <%= f.label "(セイ)", class: "family_name_kana" %>
           <%= f.text_field :family_name_kana, placeholder: "ヤマダ" %>
           <%= f.label "(メイ)" %>
           <%= f.text_field :last_name_kana, placeholder: "ハナコ" %><br>
@@ -51,18 +89,16 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %><br>
         </div>
 
+      <div class="action-box">
         <div class="actions"><br>
-          <%= f.submit "新規登録", class: "btn btn-success" %>
+          <%= f.submit "新規登録", class: "btn btn-default" %>
         </div>
-      <% end %>
+        <h3>既に登録済みの方</h3>
 
-      <h3>既に登録済みの方</h3>
-
-      <%= render "devise/shared/links" %>
-
+        <%= render "devise/shared/links" %>
       </div>
 
-
+      <% end %>
+      </div>
     </div>
   </div>
-</div>

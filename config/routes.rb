@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/search', to: 'search#search'
+
   #顧客側
   devise_for :customers
   root 'items#top'

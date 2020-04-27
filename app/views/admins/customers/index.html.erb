@@ -26,7 +26,7 @@
           </td>
           <td><%= customer.email %></td>
           <td>
-            <%= customer.is_active?? '有効': '退会済み' %>
+            <%= customer.deleted_at?? '退会済み': '有効' %>
           </td>
       </tr>
       <% end %>

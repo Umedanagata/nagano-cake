@@ -53,8 +53,6 @@
 	margin: 0 20px;
 }
 
-$cBlack: gray;
-
 .footer {
 margin-top: auto;
 bottom: 0;
@@ -63,6 +61,8 @@ height: 50px;
 background-image: url(logo-01.jpg);
 background-position: center;
 }
+
+$cBlack: gray;
 
 .btn {
     transform: translate(-3px, -3px);
@@ -77,4 +77,8 @@ background-position: center;
       box-shadow: none;
 
     }
+}
+
+a:hover {
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 }

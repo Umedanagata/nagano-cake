@@ -1,3 +1,13 @@
+<header>
+  <style media="screen">
+    .field {
+      margin-top: 30px;
+    }
+    .actions {
+      margin-top: 50px;
+    }
+  </style>
+</header>
 <div class="container">
   <div class="row">
     <h2>会員の方はこちらからログイン</h2><br>
@@ -11,13 +21,13 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
-        <div class="field"><br>
+        <div class="fields"><br>
           <%= f.label "パスワード" %>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
-          <div class="field"><br>
+          <div class="fields"><br>
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
               <%= link_to "＝＞パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
             <% end %>
@@ -33,7 +43,5 @@
       <%= render "devise/shared/links" %>
 
     </div>
-
   </div>
-
 </div>

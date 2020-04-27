@@ -32,7 +32,7 @@
             <%= cart_item.item.name %>
             <% end %>
           </td>
-          <td>¥<%= cart_item_price(cart_item) %></td>
+          <td>¥<%= cart_item_price(cart_item).to_s(:delimited) %></td>
           <td><%= cart_item.quantity.to_i %></td>
           <% amount = (cart_item.quantity).to_i * cart_item_price(cart_item) %>
           <td>¥<%= amount.to_s(:delimited) %></td>
@@ -70,7 +70,7 @@
           </tr>
           <tr>
             <th>商品合計</th>
-            <td>¥<%= total_fee %></td>
+            <td>¥<%= total_fee.to_s(:delimited) %></td>
           </tr>
           <tr class="info">
             <th>請求金額</th>

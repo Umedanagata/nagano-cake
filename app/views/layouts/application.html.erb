@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+     <script src="https://kit.fontawesome.com/944651f84d.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -36,6 +37,16 @@
       </nav>
     </header>
     <div id="wrapper">
+      <% if admin_signed_in? %>
+        <div class=" search_box , text-right">
+          <%= form_tag(search_path, method: :get) do %>
+          <%= text_field_tag 'search[content]' %>
+          <%= select_tag 'search[model]',options_for_select({ "会員" => "customer", "商品" => "item" }) %>
+          <%= hidden_field_tag 'search[method]', "部分一致" => "partial" %>
+          <%= submit_tag '検索' , class: "btn btn-info"%>
+          <% end %>
+        </div>
+      <% end %>
       <%= yield %>
        <footer class="footer">
 　　    </footer>

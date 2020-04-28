@@ -14,13 +14,17 @@ class Admins::CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.with_deleted.find(params[:id])
-    if  @customer.update(customer_params)
-        redirect_to admins_customer_path
+    if params[:is_active] == "true"
+       @customer = Customer.with_deleted.find(params[:id])
+       @customer.restore
+       redirect_to admins_customer_path(@customer)
     else
-        render "edit"
+      @customer = Customer.find(params[:id])
+      @customer.destroy
+      redirect_to admins_customer_path(@customer)
     end
   end
+
 
   private
 

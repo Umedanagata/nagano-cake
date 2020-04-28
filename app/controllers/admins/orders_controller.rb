@@ -7,7 +7,6 @@ class Admins::OrdersController < ApplicationController
 
   def show
   	@order = Order.find(params[:id])
-
   end
 
   def update
@@ -15,10 +14,12 @@ class Admins::OrdersController < ApplicationController
        @order.update(orders_params)
        @orderitems = @order.order_items.all
       if @order.orders_status == "deposit"
-         @orderitems.each do |order_item|
-         order_item.update(production_status: :waiting)
-      end
-      redirect_to admins_order_path(@order.id)
+        @orderitems.each do |order_item|
+        order_item.update(production_status: :waiting)
+         end
+        redirect_to admins_order_path(@order.id)
+      else
+        render :show
       end
   end
 

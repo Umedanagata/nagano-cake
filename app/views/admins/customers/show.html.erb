@@ -12,13 +12,13 @@
         <tr class="active">
           <th>会員ID</th>
           <td><%= @customer.id%>
-            <% if @customer.deleted_at == true %>
-              <span class="label label-primary">
-              <%= @customer.deleted_at?? '退会済み': '有効会員' %>
+            <% if @customer.deleted? == true %>
+              <span class="label label-danger">
+              <%= '退会済み' %>
               </span>
             <% else %>
-              <span class="label label-danger">
-              <%= @customer.deleted_at?? '退会済み': '有効会員' %>
+              <span class="label label-primary">
+              <%= '有効会員' %>
               </span>
             <% end %>
           </td>

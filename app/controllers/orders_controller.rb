@@ -31,7 +31,6 @@ class OrdersController < ApplicationController
     end
   end
 
-
   def create
     @order = current_customer.orders.new(order_params)
     amount

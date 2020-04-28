@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "phone_number"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
   create_table "genres", force: :cascade do |t|
     t.integer "item_id"
     t.string "name"
-    t.boolean "is_status"
+    t.boolean "is_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "name"
     t.integer "price"
     t.integer "quantity"
-    t.integer "production_status"
+    t.integer "production_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(version: 2020_04_22_101514) do
     t.string "ship_name"
     t.integer "postage", default: 800
     t.integer "amount"
-    t.integer "payment_method"
-    t.integer "orders_status"
+    t.integer "payment_method", null: false
+    t.integer "orders_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

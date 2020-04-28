@@ -1,4 +1,8 @@
 ja:
+  activerecord:
+    models:
+      customer: 会員
+      item: 商品
   enums:
     order:
       payment_method:

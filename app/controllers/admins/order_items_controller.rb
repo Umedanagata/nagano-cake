@@ -20,15 +20,11 @@ class Admins::OrderItemsController < ApplicationController
           a += 1
         end
       end
-
       # doneの数 = 1回の注文のitem数(order.item.name)なら
       if a == @orderitems.count
         @order.update(orders_status: :preparation)
         redirect_back(fallback_location: root_path)
       end
-    else
-       @order.update(order_items_params)
-       redirect_back(fallback_location: root_path)
     end
   end
 

@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get '/top'=>'top#top'
     resources :items
     resources :genres, only:[:index, :create, :edit, :update]
-    resources :customers, only:[:index, :show, :edit, :update]
+    resources :customers, only:[:index, :show, :edit, :update, :destroy]
     resources :orders, only:[:index, :show, :update]
     patch 'admins/order_items/:id' => 'order_items#update'
   end

@@ -2,7 +2,9 @@
 
 class Admins::SessionsController < Devise::SessionsController
 
+protect_from_forgery
   layout 'top'
+
 
   def after_sign_in_path_for(resource)
    admins_top_path

@@ -35,6 +35,7 @@
       margin: auto 200px;
     }
   </style>
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </header>
 <div class="container">
   <div class="row">
@@ -65,12 +66,12 @@
 
         <div class="field"><br>
           <%= f.label "郵便番号（ハイフンなし）" %>
-          <%= f.text_field :postcode %>
+          <%= f.text_field :postcode, name: :zip11, maxlength: :"7", onKeyUp: :"AjaxZip3.zip2addr(this,'','addr11','addr11');" %>
         </div>
 
         <div class="field"><br>
           <%= f.label "住所" %>
-          <%= f.text_field :address %>
+          <%= f.text_field :address, input: 'addr11' %>
         </div>
 
         <div class="field"><br>

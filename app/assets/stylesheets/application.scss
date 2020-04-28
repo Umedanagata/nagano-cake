@@ -26,6 +26,12 @@
 
  body {
     font-family: "Comic Sans MS", "arial unicode ms";
+    background-image: url(15-2.jpg);
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    background-color: rgba(250, 250, 250, 0.8);
+    background-blend-mode: lighten;
  }
 
  .form{
@@ -36,7 +42,7 @@
  	height: 50px;
  	background-image: url(logo-01.jpg);
  	background-size: cover;
- 	background-position: center;
+ 	background-position: top;
  	float: left;
  }
  ul{
@@ -79,10 +85,19 @@ $cBlack: gray;
 
     }
 }
-
-a:hover {
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+#btn-danger:hover {
+  background-color: red;
+  transition: all 1s;
+  color: white;
+  border: red;
 }
+a {
+  color: black;
+  &:hover {
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  }
+}
+
 
 .search_box{
   margin-right: 60px;

@@ -4,7 +4,6 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  acts_as_paranoid
   acts_as_paranoid without_default_scope: true
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy

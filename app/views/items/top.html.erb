@@ -1,13 +1,29 @@
 <head>
   <style media="screen">
     .welcome-message {
-      border: 3px solid pink;
       width: 600px;
+      border-radius: 7px;
+      font-size: 20px;
+      font-weight: 300;
+    }
+    .recommend-item {
+      margin-left: 50px;
+      height: auto;
+    }
+    .col-xs-8 {
+      margin-bottom: 100px;
     }
     .item-box {
       float: left;
-      margin-right: 10px;
-      margin-top: 30px;
+      padding: 10px;
+      margin: 15px;
+      background-color: white;
+      border: 1px solid silver;
+      border-radius: 7px;
+    }
+    #welcome-text {
+      text-align: center;
+      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4)
     }
   </style>
 </head>
@@ -19,7 +35,7 @@
     </div>
     <div class="col-xs-8">
       <div class="welcome-message", style="margin-top :50px;">
-        <p style="text-align: center;">ようこそ、NaganoCakeへ!<br>
+        <p id="welcome-text">ようこそ、NaganoCakeへ!<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、
         購入には会員登録が必要になります。</p>
@@ -30,9 +46,8 @@
         <div class="item-index">
           <% @items.each.with_index(1) do |item, i| %>
             <div class="item-box">
-              <% if item.is_sale == false%>
-              <% else %>
-              <p style="border-bottom: 3px dotted gray;"><%= i %></p>
+
+              <p style="border-bottom: 1px dotted gray;"><%= i %></p>
               <div class="item-image">
 
                 <%= link_to item_path(item) do %>
@@ -41,6 +56,9 @@
                 <% end %>
               </div>
               <h4><%= item.name %></h4>
+              <% if item.is_sale == false%>
+                <p style="color: red;">sorry, not for sale</p>
+              <% else %>
               <p>¥<%= (item.price * 1.08).floor %>(税込)</p>
               <% end %>
             </div>

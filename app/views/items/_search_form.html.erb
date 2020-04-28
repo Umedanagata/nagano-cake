@@ -4,17 +4,28 @@
       text-align: center;
         text-decoration: none;
     }
-    #genres:hover {
-      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
+    .genre-search {
+      position: fixed;
+      top: 100px;
+      left: 50px;
+      width: 200px;
+      background-color: white;
+      border-radius: 7px;
+      background-image: url(sample-author3.jpg);
+      text-align: center;
+    }
+    .genre-title {
+      display: inline-block;
+      border-bottom: solid gray 1px;
+      margin-bottom: 20px;
     }
   </style>
 </header>
-<div class="genre-search", style="border: solid 1px lightgray;">
-  <h4 style="text-align: center;">ジャンル検策</h4>
+<div class="genre-search", style="border: solid 1px silver;">
+  <h3 class="genre-title">ジャンル検策</h3>
   <% @genres.each do |genre| %>
   <% if genre.is_status == true %>
-  <p id="genres"> <%= link_to genre.name, genre_items_path(genre) %></p>
+  <p id="genres", style="margin-top: 20px;"> <%= link_to genre.name, genre_items_path(genre) %></p>
   <% end %>
   <% end %>
 </div>

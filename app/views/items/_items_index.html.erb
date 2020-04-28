@@ -2,8 +2,11 @@
   <style media="screen">
     .item-box {
       float: left;
-      margin-right: 30px;
-      margin-top: 30px;
+      padding: 10px;
+      margin: 15px;
+      background-color: white;
+      border: 1px solid silver;
+      border-radius: 7px;
     }
   </style>
 </head>
@@ -25,7 +28,7 @@
       <% if item.is_sale == false %>
         <p style="color: red;">sorry, not for sale</p>
       <% else %>
-        <p>¥<%= (item.price * 1.08).floor %>(税込)</p>
+        <p>¥<%= item_price(item) %>(税込)</p>
       <% end %>
     </div>
   <% end %>

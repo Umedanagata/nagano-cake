@@ -6,7 +6,7 @@
   </div>
   <div class="col-xs-8">
       <h1><%= @genre.name %>の商品一覧</h1>(全<%= @items.count %>件)
-      <%= render "items_index" %>
+      <%= render "items_index", items: @items %>
   </div>
 </div>
 </div>

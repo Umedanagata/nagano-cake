@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::SessionsController < Devise::SessionsController
+  protect_from_forgery
 
 protect_from_forgery
   layout 'top'

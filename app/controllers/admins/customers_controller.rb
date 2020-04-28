@@ -1,5 +1,6 @@
 class Admins::CustomersController < ApplicationController
   before_action :authenticate_admin!
+  layout 'top'
 
   def index
     @customers = Customer.with_deleted.page(params[:page]).per(5)

@@ -11,11 +11,31 @@
   </head>
 
   <body>
-    <header class="navbar navbar-default">
-        <%= link_to root_path ,class: "header_logo" do %>
+    <header class="navbar navbar-link", style="background-color: white;">
+        <%= link_to root_path ,class: "header_logo" do %><% end %>
+        <nav class="nav">
+          <ul>
+           <% if admin_signed_in? %>
+                  <li><%= link_to "商品一覧" , admins_items_path ,  class: "btn btn-default btn-lg" %></li>
+                 <li> <%= link_to "会員一覧" , admins_customers_path , class: "btn btn-default btn-lg" %></li>
+                 <li> <%= link_to "注文履歴一覧" , admins_orders_path , class: "btn btn-default btn-lg" %></li>
+                 <li> <%= link_to "ジャンル管理" , admins_genres_path , class: "btn btn-default btn-lg" %></li>
+                 <li> <%= link_to "管理者ログアウト" , destroy_admin_session_path ,method: :delete , class: "btn btn-default btn-lg" %></li>
+          <% else %>
+          <% end %>
+          </ul>
+      </nav>
+    </header>
+    <% if admin_signed_in? %>
+        <div class=" search_box , text-right">
+          <%= form_tag(search_path, method: :get) do %>
+          <%= text_field_tag 'search[content]' %>
+          <%= select_tag 'search[model]',options_for_select({ "会員" => "customer", "商品" => "item" }) %>
+          <%= hidden_field_tag 'search[method]', "部分一致" => "partial" %>
+          <%= submit_tag '検索' , class: "btn btn-info"%>
+          <% end %>
+        </div>
         <% end %>
-      </div>
-      </header>
     <%= yield %>
   </body>
 </html>

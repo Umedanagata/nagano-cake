@@ -1,5 +1,6 @@
 class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
+  layout 'top'
 
   def index
   	@orders = Order.page(params[:page]).per(3).order('created_at DESC')

@@ -1,6 +1,7 @@
 class Admins::ItemsController < ApplicationController
 	before_action :authenticate_admin!
 	before_action :set_genres, only: [:index, :new, :edit, :create,:update]
+	layout 'top'
 
 	def index
 		@items = Item.page(params[:page]).per(5)

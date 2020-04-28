@@ -30,7 +30,6 @@ class CustomersController < ApplicationController
     @customers.is_active = false
     @customers.save
     @customers.destroy
-    redirect_to root_path
   end
 
 

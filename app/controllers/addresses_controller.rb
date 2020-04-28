@@ -7,7 +7,7 @@ class AddressesController < ApplicationController
   def create
     @address = current_customer.addresses.new(address_params)
     @address.save
-    redirect_to addresses_path
+    redirect_to :addresses
   end
 
   def edit

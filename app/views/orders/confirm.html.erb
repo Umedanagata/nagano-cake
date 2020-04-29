@@ -62,7 +62,7 @@
           <%= f.hidden_field :address, :value => @order.address %>
           <%= f.hidden_field :ship_name, :value => @order.ship_name %>
           <%= link_to '戻る', :back, class: "btn btn-default" %>
-          <%= f.submit "購入を確定する", class: "btn btn-primary" %>
+          <%= f.submit "購入を確定する", class: "btn btn-defalut", style: "border: 3px solid #008080;" %>
         <% end %>
       <% end %>
     </div>
@@ -77,7 +77,7 @@
             <th>商品合計</th>
             <td>¥<%= total_fee.to_s(:delimited) %></td>
           </tr>
-          <tr class="info">
+          <tr style="background-color: #99CCCC;">
             <th>請求金額</th>
             <td>¥<%= @order.amount.to_s(:delimited) %></td>
           </tr>

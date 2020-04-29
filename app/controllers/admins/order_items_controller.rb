@@ -12,7 +12,7 @@ class Admins::OrderItemsController < ApplicationController
     if @orderitems.find_by(production_status: "creating")
        # ここのproductionは[製作中：production] ↓
        @order.update(orders_status: :production)
-       redirect_back(fallback_location: root_path)
+       redirect_to admins_order_path(@order.id)
 
        # doneの数をカウントする
     elsif a = 0
@@ -24,7 +24,7 @@ class Admins::OrderItemsController < ApplicationController
       # doneの数 = 1回の注文のitem数(order.item.name)なら
       if a == @orderitems.count
         @order.update(orders_status: :preparation)
-        redirect_back(fallback_location: root_path)
+        redirect_to admins_order_path(@order.id)
       end
     end
   end

@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+	before_action :authenticate_admin!
+	layout 'top'
   def search
   	@model = params["search"]["model"]
 	@content = params["search"]["content"]

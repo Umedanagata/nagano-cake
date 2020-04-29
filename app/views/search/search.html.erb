@@ -8,13 +8,13 @@
       </h3>
        <% if @model == 'item' %>
         <% if @records.empty? %>
-          <h2>検索結果は0です</h2>
+          <h2>検索結果は 0 件です</h2>
         <% else %>
     		  <%= render '/admins/items/table', items: @records %>
         <% end %>
     	 <% else %>
        　 <% if @records.empty? %>
-           <h2>検索結果は0です</h2>
+           <h2>検索結果は0件です</h2>
          <% else %>
     		  <%= render '/admins/customers/form', customers: @records %>
          <% end %>

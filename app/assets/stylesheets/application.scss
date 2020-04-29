@@ -16,7 +16,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
  #wrapper {
   display: flex;
   flex-direction: column;
@@ -60,7 +59,7 @@
 	margin: 0 20px;
 }
 
-.footer {
+.fix-bottom {
 margin-top: auto;
 bottom: 0;
 width: 100%;

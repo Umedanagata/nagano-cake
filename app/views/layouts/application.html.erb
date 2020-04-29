@@ -7,6 +7,7 @@
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
      <script src="https://kit.fontawesome.com/944651f84d.js" crossorigin="anonymous"></script>
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -32,7 +33,7 @@
     </header>
     <div id="wrapper">
       <%= yield %>
-       <footer class="footer">
+       <footer class="fix-bottom">
 　　    </footer>
     </div>
   </body>
